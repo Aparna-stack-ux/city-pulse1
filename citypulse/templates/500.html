@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="text-center text-white">
+        <h1 class="display-1">500</h1>
+        <p class="lead">{% trans "Server error." %}</p>
+        <p>{% trans "Something went wrong on the server. Please try again later." %}</p>
+        <a href="{% url 'home' %}" class="btn btn-primary mt-3">{% trans "Return home" %}</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,627 @@
+{% extends 'base.html' %}
+
+{% load static i18n %}
+
+{% block content %}
+
+<!-- Hero -->
+
+<section class="hero">
+
+<div class="container">
+
+<div class="row align-items-center gy-5">
+
+<div class="col-lg-7 hero-content" data-aos="fade-right">
+
+<div class="badge-custom">
+    <i class="bi bi-circle-fill"></i>
+    {% trans "Building a Better Tomorrow" %}
+</div>
+
+<h1>
+    {% trans "Smart City." %}
+    <br>
+    <span class="blue">{% trans "Better Living." %}</span>
+    <br>
+    <span class="green">{% trans "Stronger Together." %}</span>
+</h1>
+
+<p>
+    {% trans "CityPulse helps citizens report issues, follow city updates, and work together with local authorities to build a cleaner, safer, and smarter city." %}
+</p>
+
+<div class="hero-actions mt-4">
+    <a class="hero-btn" href="{% url 'complaint_create' %}">
+        <i class="bi bi-exclamation-circle"></i>
+        {% trans "Report Complaint" %}
+    </a>
+    <a class="map-btn" href="{% url 'map' %}">
+        <i class="bi bi-map"></i>
+        {% trans "View Live Map" %}
+    </a>
+    <a class="hero-btn" href="{% url 'complaint_list' %}">
+        <i class="bi bi-file-earmark-text"></i>
+        {% trans "View My Reports" %}
+    </a>
+</div>
+
+<div class="hero-icons mt-5">
+    <span><i class="bi bi-lightning-charge"></i> {% trans "Real Time" %}</span>
+    <span><i class="bi bi-shield-check"></i> {% trans "Transparent" %}</span>
+    <span><i class="bi bi-cpu"></i> {% trans "AI Powered" %}</span>
+    <span><i class="bi bi-people"></i> {% trans "Citizen First" %}</span>
+</div>
+
+</div>
+
+<div class="col-lg-5 hero-panel" data-aos="fade-left">
+    <div class="hero-panel-card">
+        <div class="hero-panel-top">
+            <div class="hero-panel-dots">
+                <span></span><span></span><span></span>
+            </div>
+            <div class="hero-panel-pill">{% trans "Live civic insights" %}</div>
+        </div>
+        <div class="hero-panel-body">
+            <div class="hero-panel-item">
+                <div>
+                    <h4><span class="counter" data-target="0" data-suffix="+">0+</span> {% trans "new reports" %}</h4>
+                    <p>{% trans "Tracked in the last hour" %}</p>
+                </div>
+                <span class="hero-pill positive">+18%</span>
+            </div>
+            <div class="hero-panel-item">
+                <div>
+                    <h4><span class="counter" data-target="3" data-suffix="">3</span> {% trans "high-priority zones" %}</h4>
+                    <p>{% trans "Priority routing enabled" %}</p>
+                </div>
+                <span class="hero-pill positive">{% trans "Fast" %}</span>
+            </div>
+            <div class="hero-panel-item">
+                <div>
+                    <h4><span class="counter" data-target="98" data-suffix="%">98</span> {% trans "response rate" %}</h4>
+                    <p>{% trans "Public services updated" %}</p>
+                </div>
+                <span class="hero-pill positive">{% trans "Reliable" %}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="feature-section py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="feature-card p-4 h-100">
+                    <div class="feature-icon text-primary mb-3">
+                        <i class="bi bi-bullseye fs-2"></i>
+                    </div>
+                    <h3>{% trans "Fast reporting" %}</h3>
+                    <p>{% trans "Submit a new complaint with a few clicks and track updates from your dashboard." %}</p>
+                    <a class="btn btn-primary mt-3" href="{% url 'complaint_create' %}">{% trans "Report an Issue" %}</a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="feature-card p-4 h-100">
+                    <div class="feature-icon text-success mb-3">
+                        <i class="bi bi-geo-alt fs-2"></i>
+                    </div>
+                    <h3>{% trans "Live city map" %}</h3>
+                    <p>{% trans "Explore incidents and active service requests on an interactive city map." %}</p>
+                    <a class="btn btn-primary mt-3" href="{% url 'map' %}">{% trans "Open Live Map" %}</a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="feature-card p-4 h-100">
+                    <div class="feature-icon text-warning mb-3">
+                        <i class="bi bi-cloud-sun fs-2"></i>
+                    </div>
+                    <h3>{% trans "Weather insights" %}</h3>
+                    <p>{% trans "Check the latest weather conditions and plan responses to weather-sensitive issues." %}</p>
+                    <a class="btn btn-primary mt-3" href="{% url 'weather' %}">{% trans "View Weather" %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =================== Statistics =================== -->
+
+<section class="stats-section">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="stat-card">
+
+                    <div class="icon blue-icon">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+
+                    <h2 class="counter">{{ citizen_count }}</h2>
+
+                    <h5>{% trans "Active Citizens" %}</h5>
+
+                    <p>{% trans "Connected to CityPulse" %}</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="stat-card">
+
+                    <div class="icon purple-icon">
+                        <i class="bi bi-clipboard-check"></i>
+                    </div>
+
+                    <h2 class="counter">{{ complaint_count }}</h2>
+
+                    <h5>{% trans "Complaints" %}</h5>
+
+                    <p>{% trans "Reported This Month" %}</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="stat-card">
+
+                    <div class="icon green-icon">
+                        <i class="bi bi-check-circle-fill"></i>
+                    </div>
+
+                    <h2 class="counter">{{ resolved_count }}</h2>
+
+                    <h5>{% trans "Resolved" %}</h5>
+
+                    <p>{% trans "Successfully Completed" %}</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="stat-card">
+
+                    <div class="icon red-icon">
+                        <i class="bi bi-bell-fill"></i>
+                    </div>
+
+                    <h2 class="counter">{{ emergency_count }}</h2>
+
+                    <h5>{% trans "Emergency Alerts" %}</h5>
+
+                    <p>{% trans "Active Right Now" %}</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= SERVICES ================= -->
+
+<section class="services">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>{% trans "OUR SERVICES" %}</span>
+
+            <h2>{% trans "How We Can Help You" %}</h2>
+
+            <p>
+                {% trans "Choose a service category to report an issue or request assistance." %}
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Garbage -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="service-card">
+
+                    <div class="service-icon green">
+
+                        <i class="bi bi-trash3-fill"></i>
+
+                    </div>
+
+                    <h4>{% trans "Garbage Management" %}</h4>
+
+                    <p>
+                        {% trans "Report garbage overflow, missed collection and waste issues." %}
+                    </p>
+
+                    <a href="{% url 'complaint_create' %}">{% trans "Report Garbage Issue" %} <i class="bi bi-arrow-right"></i></a>
+
+                </div>
+
+            </div>
+
+            <!-- Street Light -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="service-card">
+
+                    <div class="service-icon yellow">
+
+                        <i class="bi bi-lightbulb-fill"></i>
+
+                    </div>
+
+                    <h4>{% trans "Street Light Issues" %}</h4>
+
+                    <p>
+                        {% trans "Report broken or non-working street lights in your area." %}
+                    </p>
+
+                    <a href="{% url 'complaint_create' %}">{% trans "Report Street Light Issue" %} <i class="bi bi-arrow-right"></i></a>
+
+                </div>
+
+            </div>
+
+            <!-- Water -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="service-card">
+
+                    <div class="service-icon blue">
+
+                        <i class="bi bi-droplet-fill"></i>
+
+                    </div>
+
+                    <h4>{% trans "Water Supply" %}</h4>
+
+                    <p>
+                        {% trans "Report leakage, contamination and supply problems." %}
+                    </p>
+
+                    <a href="{% url 'complaint_create' %}">{% trans "Report Water Issue" %} <i class="bi bi-arrow-right"></i></a>
+
+                </div>
+
+            </div>
+
+            <!-- Road -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="service-card">
+
+                    <div class="service-icon purple">
+
+                        <i class="bi bi-signpost-2-fill"></i>
+
+                    </div>
+
+                    <h4>{% trans "Road Damage" %}</h4>
+
+                    <p>
+                        {% trans "Report potholes, damaged roads and unsafe pathways." %}
+                    </p>
+
+                    <a href="{% url 'complaint_create' %}">{% trans "Report Road Damage" %} <i class="bi bi-arrow-right"></i></a>
+
+                </div>
+
+            </div>
+
+            <!-- Emergency -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="service-card">
+
+                    <div class="service-icon red">
+
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+
+                    </div>
+
+                    <h4>{% trans "Emergency" %}</h4>
+
+                    <p>
+                        {% trans "Report accidents, emergencies and urgent civic incidents." %}
+                    </p>
+
+                    <a href="{% url 'complaint_create' %}">{% trans "Report Emergency" %} <i class="bi bi-arrow-right"></i></a>
+
+                </div>
+
+            </div>
+
+            <!-- Environment -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="service-card">
+
+                    <div class="service-icon cyan">
+
+                        <i class="bi bi-tree-fill"></i>
+
+                    </div>
+
+                    <h4>{% trans "Environment" %}</h4>
+
+                    <p>
+                        {% trans "Report pollution, illegal dumping and environmental concerns." %}
+                    </p>
+
+                    <a href="{% url 'complaint_create' %}">{% trans "Report Environment Issue" %} <i class="bi bi-arrow-right"></i></a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= ANNOUNCEMENTS ================= -->
+
+<section class="announcements">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>{% trans "LATEST UPDATES" %}</span>
+
+            <h2>{% trans "City Announcements" %}</h2>
+
+            <p>
+                {% trans "Stay informed about important city updates, maintenance schedules and public notices." %}
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Card 1 -->
+
+            <div class="col-lg-4">
+
+                <div class="news-card">
+
+                    <span class="news-date">
+                        16 JUL
+                    </span>
+
+                        <h4>
+                        {% trans "Smart Traffic System Launch" %}
+                    </h4>
+
+                    <p>
+                        {% trans "AI-powered traffic monitoring is now active at major intersections to improve traffic flow." %}
+                    </p>
+
+                    <a href="{% url 'map' %}">
+                        {% trans "View Traffic Map" %}
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Card 2 -->
+
+            <div class="col-lg-4">
+
+                <div class="news-card">
+
+                    <span class="news-date">
+                        18 JUL
+                    </span>
+
+                    <h4>
+                        {% trans "Water Supply Maintenance" %}
+                    </h4>
+
+                    <p>
+                        {% trans "Water supply will be temporarily unavailable in selected zones from 10 PM to 4 AM." %}
+                    </p>
+
+                    <a href="{% url 'weather' %}">
+                        {% trans "Check Weather Updates" %}
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Card 3 -->
+
+            <div class="col-lg-4">
+
+                <div class="news-card">
+
+                    <span class="news-date">
+                        20 JUL
+                    </span>
+
+                    <h4>
+                        {% trans "Green City Plantation Drive" %}
+                    </h4>
+
+                    <p>
+                        {% trans "Join the city's plantation campaign and help create a greener environment." %}
+                    </p>
+
+                    <a href="{% url 'map' %}">
+                        {% trans "View City Updates" %}
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- WHY CHOOSE US -->
+
+<section class="features py-5">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>{% trans "WHY CITYPULSE" %}</span>
+
+<h2>{% trans "Smart Features" %}</h2>
+
+<p>{% trans "Designed for citizens and government to work together." %}</p>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-3">
+
+<div class="feature-box">
+
+<i class="bi bi-cpu-fill"></i>
+
+<h5>{% trans "AI Powered" %}</h5>
+
+<p>{% trans "AI helps categorize complaints and provide faster support." %}</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3">
+
+<div class="feature-box">
+
+<i class="bi bi-map-fill"></i>
+
+<h5>{% trans "Live Maps" %}</h5>
+
+<p>{% trans "Track complaints directly from the city map." %}</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3">
+
+<div class="feature-box">
+
+<i class="bi bi-lightning-charge-fill"></i>
+
+<h5>{% trans "Real-Time" %}</h5>
+
+<p>{% trans "Receive instant updates and notifications." %}</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3">
+
+<div class="feature-box">
+
+<i class="bi bi-shield-check"></i>
+
+<h5>{% trans "Secure" %}</h5>
+
+<p>{% trans "Safe authentication and protected citizen data." %}</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="row g-4 align-items-start">
+
+            <div class="col-lg-4">
+
+                <h3>
+                    <i class="bi bi-buildings-fill text-info"></i>
+                    CityPulse
+                </h3>
+
+                <p>
+                    {% trans "Connecting citizens with smarter governance through technology, transparency and real-time services." %}
+                </p>
+
+            </div>
+
+            <div class="col-lg-8">
+                <div class="hotspot-summary">
+                    <div class="d-flex flex-column flex-md-row justify-content-between gap-3">
+                        <div>
+                            <h5>🗑️ {% trans "India garbage hotspot summary" %}</h5>
+                            <p class="mb-3">{% trans "Major waste-management pressure is being tracked across cities. Explore the map to understand each location and report a local issue." %}</p>
+                        </div>
+                        <a class="btn btn-primary align-self-start" href="{% url 'map' %}">🗺️ {% trans "Explore hotspots" %}</a>
+                    </div>
+                    <div class="hotspot-chips" aria-label="{% trans 'Featured garbage hotspots' %}">
+                        <span>🔴 Ghazipur, Delhi</span>
+                        <span>🔴 Bhalswa, Delhi</span>
+                        <span>🔴 Okhla, Delhi</span>
+                        <span>🔴 Pirana, Ahmedabad</span>
+                        <span>🔴 Bengaluru</span>
+                        <span>🔴 Chennai</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="text-center mb-0">
+            {% trans "© 2026 CityPulse. All Rights Reserved." %}
+        </p>
+
+    </div>
+
+</footer>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% load i18n %}
+<div class="card bg-dark border-secondary p-4 mb-4">
+    <h4>🧭 {% trans "Navigation" %}</h4>
+    <div class="list-group list-group-flush mt-3">
+        <a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action bg-dark text-white border-secondary">📊 {% trans "Dashboard" %}</a>
+        <a href="{% url 'complaint_list' %}" class="list-group-item list-group-item-action bg-dark text-white border-secondary">📋 {% trans "Complaints" %}</a>
+        <a href="{% url 'map' %}" class="list-group-item list-group-item-action bg-dark text-white border-secondary">🗺️ {% trans "Live Map" %}</a>
+        <a href="{% url 'weather' %}" class="list-group-item list-group-item-action bg-dark text-white border-secondary">☀️ {% trans "Weather" %}</a>
+        <a href="{% url 'chatbot' %}" class="list-group-item list-group-item-action bg-dark text-white border-secondary">🤖 {% trans "AI Assistant" %}</a>
+    </div>
+</div>

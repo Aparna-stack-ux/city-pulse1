@@ -1,0 +1,1627 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: CityPulse\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Machine translation; review required\n"
+"Language-Team: gu\n"
+"Language: gu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "0 recent complaints"
+msgstr "0 તાજેતરની ફરિયાદો"
+
+msgid "5-day forecast"
+msgstr "5-દિવસની આગાહી"
+
+msgid "ACTIVITY"
+msgstr "પ્રવૃત્તિ"
+
+msgid "AI"
+msgstr "AI"
+
+msgid "AI Assistant"
+msgstr "એઆઈ સહાયક"
+
+msgid "AI Powered"
+msgstr "AI સંચાલિત"
+
+msgid "AI assistant is not configured."
+msgstr "AI સહાયક ગોઠવેલ નથી."
+
+msgid "AI helps categorize complaints and provide faster support."
+msgstr "AI ફરિયાદોને વર્ગીકૃત કરવામાં અને ઝડપી સહાય પૂરી પાડવામાં મદદ કરે છે."
+
+msgid "AI ready"
+msgstr "AI તૈયાર"
+
+msgid "AI service could not complete the request."
+msgstr "AI સેવા વિનંતી પૂર્ણ કરી શકી નથી."
+
+msgid "AI service is temporarily unavailable."
+msgstr "AI સેવા અસ્થાયી રૂપે અનુપલબ્ધ છે."
+
+msgid "AI service returned an empty response."
+msgstr "AI સેવાએ ખાલી પ્રતિસાદ આપ્યો."
+
+msgid "AI service returned an unreadable response."
+msgstr "AI સેવાએ વાંચી ન શકાય એવો પ્રતિસાદ આપ્યો."
+
+msgid ""
+"AI-powered traffic monitoring is now active at major intersections to "
+"improve traffic flow."
+msgstr ""
+"ટ્રાફિક પ્રવાહમાં સુધારો કરવા માટે AI સંચાલિત ટ્રાફિક મોનિટરિંગ હવે મુખ્ય "
+"આંતરછેદો પર સક્રિય છે."
+
+msgid "Active Citizens"
+msgstr "સક્રિય નાગરિકો"
+
+msgid "Active Right Now"
+msgstr "અત્યારે સક્રિય"
+
+msgid "Active reports"
+msgstr "સક્રિય અહેવાલો"
+
+msgid "All locations"
+msgstr "બધા સ્થાનો"
+
+msgid "All your reports"
+msgstr "તમારા બધા અહેવાલો"
+
+msgid "Already have an account?"
+msgstr "પહેલેથી એકાઉન્ટ છે?"
+
+msgid ""
+"Ask CityPulse for help with complaints, city services, or emergency "
+"guidance."
+msgstr ""
+"ફરિયાદો, શહેર સેવાઓ અથવા કટોકટી માર્ગદર્શન માટે મદદ માટે CityPulse ને પૂછો."
+
+msgid "Assamese"
+msgstr "આસામી"
+
+msgid "Assigned"
+msgstr "સોંપેલ"
+
+msgid "Assistant is preparing guidance"
+msgstr "સહાયક માર્ગદર્શન તૈયાર કરી રહ્યો છે"
+
+msgid "Assistant shortcuts"
+msgstr "સહાયક શૉર્ટકટ્સ"
+
+msgid "Attach a file"
+msgstr "ફાઇલ જોડો"
+
+msgid "Attach an image"
+msgstr "એક છબી જોડો"
+
+msgid "Awaiting action"
+msgstr "કાર્યવાહીની રાહ જોઈ રહ્યા છીએ"
+
+msgid "Back to Complaints"
+msgstr "ફરિયાદો પર પાછા જાઓ"
+
+msgid "Back to Dashboard"
+msgstr "ડેશબોર્ડ પર પાછા જાઓ"
+
+msgid "Bengali"
+msgstr "બંગાળી"
+
+msgid "Better Living."
+msgstr "બેટર લિવિંગ."
+
+msgid "Building a Better Tomorrow"
+msgstr "બિલ્ડીંગ એ બેટર ટુમોરો"
+
+msgid "CITYPULSE / OVERVIEW"
+msgstr "સિટીપલ્સ / વિહંગાવલોકન"
+
+msgid "CITYPULSE / WEATHER"
+msgstr "સિટીપલ્સ / હવામાન"
+
+msgid "CURRENT CONDITIONS"
+msgstr "વર્તમાન શરતો"
+
+msgid "Cancel"
+msgstr "રદ કરો"
+
+msgid "Category"
+msgstr "શ્રેણી"
+
+msgid "Category:"
+msgstr "શ્રેણી:"
+
+msgid "Chat request is too large."
+msgstr "ચેટ વિનંતી ખૂબ મોટી છે."
+
+msgid "Check Weather Updates"
+msgstr "હવામાન અપડેટ્સ તપાસો"
+
+msgid "Check city weather"
+msgstr "શહેરનું હવામાન તપાસો"
+
+msgid "Check the OpenWeather API key and try again."
+msgstr "OpenWeather API કી તપાસો અને ફરી પ્રયાસ કરો."
+
+msgid ""
+"Check the latest weather conditions and plan responses to weather-sensitive "
+"issues."
+msgstr ""
+"નવીનતમ હવામાન પરિસ્થિતિઓ તપાસો અને હવામાન-સંવેદનશીલ મુદ્દાઓ માટેના "
+"પ્રતિભાવોની યોજના બનાવો."
+
+msgid "Choose a file smaller than 10 MB."
+msgstr "10 MB કરતા નાની ફાઇલ પસંદ કરો."
+
+msgid "Choose a service category to report an issue or request assistance."
+msgstr "સમસ્યાની જાણ કરવા અથવા સહાયની વિનંતી કરવા માટે સેવા શ્રેણી પસંદ કરો."
+
+msgid "Citizen First"
+msgstr "નાગરિક પ્રથમ"
+
+msgid "Citizen account"
+msgstr "નાગરિક ખાતું"
+
+msgid "Citizen reports"
+msgstr "નાગરિક અહેવાલ"
+
+msgid "City Announcements"
+msgstr "શહેરની ઘોષણાઓ"
+
+msgid "City identified for waste separation and treatment challenges."
+msgstr "કચરાને અલગ કરવા અને સારવારના પડકારો માટે શહેરની ઓળખ કરવામાં આવી છે."
+
+msgid "City map"
+msgstr "શહેરનો નકશો"
+
+msgid "CityPulse Administration"
+msgstr "સિટીપલ્સ એડમિનિસ્ટ્રેશન"
+
+msgid "CityPulse USSD"
+msgstr "સિટીપલ્સ યુએસએસડી"
+
+msgid "CityPulse USSD simulator"
+msgstr "સિટીપલ્સ યુએસએસડી સિમ્યુલેટર"
+
+msgid "CityPulse civic services · Secure connection"
+msgstr "સિટીપલ્સ નાગરિક સેવાઓ · સુરક્ષિત કનેક્શન"
+
+msgid ""
+"CityPulse helps citizens report issues, follow city updates, and work "
+"together with local authorities to build a cleaner, safer, and smarter city."
+msgstr ""
+"CityPulse નાગરિકોને સમસ્યાઓની જાણ કરવામાં, શહેરના અપડેટ્સને અનુસરવામાં અને "
+"સ્વચ્છ, સુરક્ષિત અને સ્માર્ટ શહેર બનાવવા માટે સ્થાનિક અધિકારીઓ સાથે મળીને "
+"કામ કરવામાં મદદ કરે છે."
+
+msgid "CityPulse live map"
+msgstr "CityPulse જીવંત નકશો"
+
+msgid "Clear"
+msgstr "સાફ કરો"
+
+msgid "Click anywhere on the map to set location"
+msgstr "સ્થાન સેટ કરવા માટે નકશા પર ગમે ત્યાં ક્લિક કરો"
+
+msgid "Click to choose complaint location"
+msgstr "ફરિયાદ સ્થાન પસંદ કરવા માટે ક્લિક કરો"
+
+msgid "Close"
+msgstr "બંધ કરો"
+
+msgid "Collection gap"
+msgstr "સંગ્રહ ગેપ"
+
+msgid ""
+"Complaint %(reference)s\n"
+"Status: %(status)s\n"
+"Category: %(category)s\n"
+"Location: %(location)s"
+msgstr ""
+"ફરિયાદ %(reference)s\n"
+"સ્થિતિ: %(status)s\n"
+"શ્રેણી: %(category)s\n"
+"સ્થાન: %(location)s"
+
+msgid "Complaint Status"
+msgstr "ફરિયાદની સ્થિતિ"
+
+msgid "Complaint Title"
+msgstr "ફરિયાદ શીર્ષક"
+
+msgid "Complaint categories"
+msgstr "ફરિયાદ શ્રેણીઓ"
+
+msgid "Complaint image"
+msgstr "ફરિયાદની તસવીર"
+
+msgid "Complaint navigation"
+msgstr "ફરિયાદ નેવિગેશન"
+
+msgid ""
+"Complaint not found for this mobile number. Check the reference and try "
+"again."
+msgstr "આ મોબાઈલ નંબર માટે ફરિયાદ મળી નથી. સંદર્ભ તપાસો અને ફરી પ્રયાસ કરો."
+
+msgid "Complaint pages"
+msgstr "ફરિયાદ પૃષ્ઠો"
+
+msgid ""
+"Complaint received. Reference: %(reference)s. Enter 0 to return to the menu."
+msgstr "ફરિયાદ મળી. સંદર્ભ: %(reference)s. મેનૂ પર પાછા આવવા માટે 0 દાખલ કરો."
+
+msgid "Complaints"
+msgstr "ફરિયાદો"
+
+msgid "Conditions unavailable"
+msgstr "શરતો અનુપલબ્ધ"
+
+msgid "Connected to CityPulse"
+msgstr "CityPulse સાથે જોડાયેલ છે"
+
+msgid ""
+"Connecting citizens with smarter governance through technology, transparency"
+" and real-time services."
+msgstr ""
+"ટેકનોલોજી, પારદર્શિતા અને રીઅલ-ટાઇમ સેવાઓ દ્વારા નાગરિકોને સ્માર્ટ ગવર્નન્સ "
+"સાથે જોડવા."
+
+msgid "Controversial dumping zone with reported leachate concerns."
+msgstr "લીચેટની ચિંતા સાથે વિવાદાસ્પદ ડમ્પિંગ ઝોન."
+
+msgid "Conversation"
+msgstr "વાતચીત"
+
+msgid "Country calling code"
+msgstr "દેશ કૉલિંગ કોડ"
+
+msgid "Create Account"
+msgstr "એકાઉન્ટ બનાવો"
+
+msgid "Create a complaint"
+msgstr "ફરિયાદ બનાવો"
+
+msgid "Create a report"
+msgstr "રિપોર્ટ બનાવો"
+
+msgid "Create one"
+msgstr "એક બનાવો"
+
+msgid "Create your city account"
+msgstr "તમારું શહેર ખાતું બનાવો"
+
+msgid ""
+"Current conditions can still be checked. A forecast will appear when the "
+"OpenWeather service returns it."
+msgstr ""
+"વર્તમાન પરિસ્થિતિઓ હજુ પણ ચકાસી શકાય છે. જ્યારે OpenWeather સેવા તેને પરત "
+"કરશે ત્યારે આગાહી દેખાશે."
+
+msgid "Daily forecast"
+msgstr "દૈનિક આગાહી"
+
+msgid "Dashboard"
+msgstr "ડેશબોર્ડ"
+
+msgid "Dashboard navigation"
+msgstr "ડેશબોર્ડ નેવિગેશન"
+
+msgid "Decades-old dumping ground affecting nearby communities."
+msgstr "દાયકાઓ જૂનું ડમ્પિંગ ગ્રાઉન્ડ નજીકના સમુદાયોને અસર કરે છે."
+
+msgid "Describe the issue"
+msgstr "મુદ્દાનું વર્ણન કરો"
+
+msgid "Describe the problem:"
+msgstr "સમસ્યાનું વર્ણન કરો:"
+
+msgid ""
+"Describe the road or street issue and where it is. A nearby landmark helps "
+"the city team locate it quickly."
+msgstr ""
+"રસ્તા અથવા શેરીની સમસ્યા અને તે ક્યાં છે તેનું વર્ણન કરો. નજીકની સીમાચિહ્ન "
+"શહેરની ટીમને તેને ઝડપથી શોધવામાં મદદ કરે છે."
+
+msgid "Description"
+msgstr "વર્ણન"
+
+msgid "Designed for citizens and government to work together."
+msgstr "નાગરિકો અને સરકાર સાથે મળીને કામ કરવા માટે રચાયેલ છે."
+
+msgid "Details"
+msgstr "વિગતો"
+
+msgid "Don’t have an account?"
+msgstr "ખાતું નથી?"
+
+msgid "Drag or click to upload JPG, PNG or WEBP"
+msgstr "JPG, PNG અથવા WEBP અપલોડ કરવા માટે ખેંચો અથવા ક્લિક કરો"
+
+msgid "Drainage"
+msgstr "ડ્રેનેજ"
+
+msgid ""
+"EMERGENCY\n"
+"\n"
+"Please contact the appropriate\n"
+"official emergency service directly.\n"
+"\n"
+"1. Police\n"
+"2. Ambulance\n"
+"3. Fire\n"
+"\n"
+"Enter 0 to return."
+msgstr ""
+"ઇમર્જન્સી\n"
+"\n"
+"કૃપા કરીને યોગ્ય સંપર્ક કરો\n"
+"સત્તાવાર કટોકટી સેવા સીધી.\n"
+"\n"
+"1. પોલીસ\n"
+"2. એમ્બ્યુલન્સ\n"
+"3. આગ\n"
+"\n"
+"પરત કરવા માટે 0 દાખલ કરો."
+
+msgid "Electricity"
+msgstr "વીજળી"
+
+msgid "Email"
+msgstr "ઈમેલ"
+
+msgid "Email:"
+msgstr "ઈમેલ:"
+
+msgid "Emergency"
+msgstr "કટોકટી"
+
+msgid "Emergency Alerts"
+msgstr "કટોકટી ચેતવણીઓ"
+
+msgid "Emergency assistance guidance"
+msgstr "કટોકટી સહાય માર્ગદર્શન"
+
+msgid "Emergency contact"
+msgstr "કટોકટી સંપર્ક"
+
+msgid "Emergency help"
+msgstr "કટોકટીની મદદ"
+
+msgid "English"
+msgstr "અંગ્રેજી"
+
+msgid "Enter a valid mobile number."
+msgstr "માન્ય મોબાઇલ નંબર દાખલ કરો."
+
+msgid "Enter the location of the problem:"
+msgstr "સમસ્યાનું સ્થાન દાખલ કરો:"
+
+msgid "Enter your mobile number"
+msgstr "તમારો મોબાઈલ નંબર દાખલ કરો"
+
+msgid "Enter your mobile number to continue"
+msgstr "ચાલુ રાખવા માટે તમારો મોબાઈલ નંબર દાખલ કરો"
+
+msgid "Enter your response"
+msgstr "તમારો પ્રતિભાવ દાખલ કરો"
+
+msgid "Environment"
+msgstr "પર્યાવરણ"
+
+msgid "Explore hotspots"
+msgstr "હોટસ્પોટ્સનું અન્વેષણ કરો"
+
+msgid ""
+"Explore incidents and active service requests on an interactive city map."
+msgstr ""
+"ઇન્ટરેક્ટિવ શહેરના નકશા પર ઘટનાઓ અને સક્રિય સેવા વિનંતીઓનું અન્વેષણ કરો."
+
+msgid "Fast"
+msgstr "ઝડપી"
+
+msgid "Fast reporting"
+msgstr "ઝડપી રિપોર્ટિંગ"
+
+msgid "Featured garbage hotspots"
+msgstr "વૈશિષ્ટિકૃત કચરાના હોટસ્પોટ્સ"
+
+msgid "Feels like"
+msgstr "લાગે છે"
+
+msgid "File kept on this device; not shared: %(name)s"
+msgstr "આ ઉપકરણ પર રાખવામાં આવેલી ફાઇલ; શેર કરેલ નથી: %(name)s"
+
+msgid "Find a hotspot"
+msgstr "હોટસ્પોટ શોધો"
+
+msgid "Find nearby hotspots"
+msgstr "નજીકના હોટસ્પોટ્સ શોધો"
+
+msgid "Finding nearby hotspots"
+msgstr "નજીકના હોટસ્પોટ્સ શોધી રહ્યાં છીએ"
+
+msgid "First Name"
+msgstr "પ્રથમ નામ"
+
+msgid ""
+"For a waste or cleanliness issue, create a report, choose the closest "
+"category, add a clear location, and include a photo if useful."
+msgstr ""
+"કચરો અથવા સ્વચ્છતાની સમસ્યા માટે, રિપોર્ટ બનાવો, સૌથી નજીકની કેટેગરી પસંદ "
+"કરો, સ્પષ્ટ સ્થાન ઉમેરો અને જો ઉપયોગી હોય તો ફોટો શામેલ કરો."
+
+msgid ""
+"For a water or drainage problem, add the affected street or landmark and say"
+" whether the issue is ongoing or intermittent."
+msgstr ""
+"પાણી અથવા ડ્રેનેજ સમસ્યા માટે, અસરગ્રસ્ત શેરી અથવા સીમાચિહ્ન ઉમેરો અને કહો "
+"કે સમસ્યા ચાલુ છે કે તૂટક તૂટક."
+
+msgid "For immediate danger, contact local emergency services."
+msgstr "તાત્કાલિક ભય માટે, સ્થાનિક કટોકટી સેવાઓનો સંપર્ક કરો."
+
+msgid "Forecast unavailable"
+msgstr "અનુમાન અનુપલબ્ધ"
+
+msgid "Garbage"
+msgstr "કચરો"
+
+msgid "Garbage Management"
+msgstr "ગાર્બેજ મેનેજમેન્ટ"
+
+msgid "Garbage Reported"
+msgstr "કચરો અહેવાલ"
+
+msgid "Garbage Resolved"
+msgstr "કચરો ઉકેલાયો"
+
+msgid "Garbage hotspot"
+msgstr "કચરો હોટસ્પોટ"
+
+msgid "Garbage hotspots"
+msgstr "કચરાના હોટસ્પોટ્સ"
+
+msgid "Garbage hotspots:"
+msgstr "કચરાના હોટસ્પોટ્સ:"
+
+msgid "Get help with common city services quickly."
+msgstr "સામાન્ય શહેર સેવાઓ માટે ઝડપથી મદદ મેળવો."
+
+msgid "Get immediate assistance guidance"
+msgstr "તાત્કાલિક સહાય માર્ગદર્શન મેળવો"
+
+msgid "Green City Plantation Drive"
+msgstr "ગ્રીન સિટી પ્લાન્ટેશન ડ્રાઇવ"
+
+msgid "Gujarati"
+msgstr "ગુજરાતી"
+
+msgid "Hello! I'm CityPulse Assistant. I can help you with:"
+msgstr "હેલો! હું સિટીપલ્સ આસિસ્ટન્ટ છું. હું તમને આમાં મદદ કરી શકું છું:"
+
+msgid "Help me report a garbage issue"
+msgstr "કચરાની સમસ્યાની જાણ કરવામાં મને મદદ કરો"
+
+msgid "Help me report an issue near coordinates %(latitude)s, %(longitude)s"
+msgstr ""
+"%(latitude)s, %(longitude)s કોઓર્ડિનેટ્સ પાસે સમસ્યાની જાણ કરવામાં મને મદદ "
+"કરો"
+
+msgid "Help me report garbage"
+msgstr "કચરાની જાણ કરવામાં મને મદદ કરો"
+
+msgid "Here is the latest pulse of your civic reports."
+msgstr "અહીં તમારા નાગરિક અહેવાલોની નવીનતમ પલ્સ છે."
+
+msgid "Hide hourly details"
+msgstr "કલાકદીઠ વિગતો છુપાવો"
+
+msgid "High"
+msgstr "ઉચ્ચ"
+
+msgid "High / low"
+msgstr "ઉચ્ચ / નીચું"
+
+msgid "Hindi"
+msgstr "હિન્દી"
+
+msgid "Home"
+msgstr "ઘર"
+
+msgid "How We Can Help You"
+msgstr "અમે તમને કેવી રીતે મદદ કરી શકીએ"
+
+msgid "How can I help you today?"
+msgstr "આજે હું તમને કેવી રીતે મદદ કરી શકું?"
+
+msgid "How do I request a road repair?"
+msgstr "હું રસ્તાના સમારકામની વિનંતી કેવી રીતે કરી શકું?"
+
+msgid "Humidity"
+msgstr "ભેજ"
+
+msgid ""
+"I can help with a city-service report, road or water issue, waste hotspot, "
+"local weather, or tracking a submitted report. What are you trying to do?"
+msgstr ""
+"હું શહેર-સેવા અહેવાલ, રસ્તા અથવા પાણીની સમસ્યા, વેસ્ટ હોટસ્પોટ, સ્થાનિક "
+"હવામાન અથવા સબમિટ કરેલા અહેવાલને ટ્રૅક કરવામાં મદદ કરી શકું છું. તમે શું "
+"કરવાનો પ્રયાસ કરી રહ્યા છો?"
+
+msgid "I have a water supply issue"
+msgstr "મને પાણી પુરવઠાની સમસ્યા છે"
+
+msgid "I need emergency help"
+msgstr "મને કટોકટીની મદદની જરૂર છે"
+
+msgid ""
+"If someone is in immediate danger, call your local emergency number now. For"
+" a city-service issue, include the exact location and what is happening in a"
+" report."
+msgstr ""
+"જો કોઈ વ્યક્તિ તાત્કાલિક જોખમમાં હોય, તો હમણાં તમારા સ્થાનિક ઈમરજન્સી નંબર "
+"પર કૉલ કરો. શહેર-સેવા સમસ્યા માટે, ચોક્કસ સ્થાન અને રિપોર્ટમાં શું થઈ રહ્યું"
+" છે તેનો સમાવેશ કરો."
+
+msgid "In Progress"
+msgstr "પ્રગતિમાં છે"
+
+msgid "Inconsistent door-to-door waste collection is reported."
+msgstr "અસંગત ડોર-ટુ-ડોર કચરાના સંગ્રહની જાણ કરવામાં આવી છે."
+
+msgid "India garbage hotspot summary"
+msgstr "ભારત ગાર્બેજ હોટસ્પોટ સારાંશ"
+
+msgid "Interactive map of reported city problems"
+msgstr "નોંધાયેલ શહેરની સમસ્યાઓનો ઇન્ટરેક્ટિવ નકશો"
+
+msgid ""
+"Invalid category.\n"
+"\n"
+"1. Road\n"
+"2. Water\n"
+"3. Garbage\n"
+"4. Street Light\n"
+"5. Drainage\n"
+"6. Other\n"
+"\n"
+"Enter category:"
+msgstr ""
+"અમાન્ય શ્રેણી.\n"
+"\n"
+"1. રોડ\n"
+"2. પાણી\n"
+"3. કચરો\n"
+"4. સ્ટ્રીટ લાઈટ\n"
+"5. ડ્રેનેજ\n"
+"6. અન્ય\n"
+"\n"
+"શ્રેણી દાખલ કરો:"
+
+msgid ""
+"Invalid option.\n"
+"\n"
+"1. Report Complaint\n"
+"2. Track Complaint\n"
+"3. Emergency\n"
+"4. Weather\n"
+"5. My Complaints"
+msgstr ""
+"અમાન્ય વિકલ્પ.\n"
+"\n"
+"1. ફરિયાદની જાણ કરો\n"
+"2. ટ્રૅક ફરિયાદ\n"
+"3. કટોકટી\n"
+"4. હવામાન\n"
+"5. મારી ફરિયાદો"
+
+msgid "Join CityPulse"
+msgstr "CityPulse માં જોડાઓ"
+
+msgid ""
+"Join the city's plantation campaign and help create a greener environment."
+msgstr ""
+"શહેરના વૃક્ષારોપણ અભિયાનમાં જોડાઓ અને હરિયાળું વાતાવરણ બનાવવામાં મદદ કરો."
+
+msgid "Just now"
+msgstr "હમણાં જ"
+
+msgid "Kannada"
+msgstr "કન્નડ"
+
+msgid "LATEST UPDATES"
+msgstr "નવીનતમ અપડેટ્સ"
+
+msgid "Large landfill site with recurring waste fires."
+msgstr "પુનરાવર્તિત કચરાની આગ સાથે મોટી લેન્ડફિલ સાઇટ."
+
+msgid "Last Name"
+msgstr "છેલ્લું નામ"
+
+msgid "Latitude"
+msgstr "અક્ષાંશ"
+
+msgid "Latitude/Longitude:"
+msgstr "અક્ષાંશ/રેખાંશ:"
+
+msgid "Live Map"
+msgstr "જીવંત નકશો"
+
+msgid "Live Maps"
+msgstr "જીવંત નકશા"
+
+msgid "Live city map"
+msgstr "જીવંત શહેર નકશો"
+
+msgid "Live civic insights"
+msgstr "જીવંત નાગરિક આંતરદૃષ્ટિ"
+
+msgid "Live conditions"
+msgstr "જીવંત પરિસ્થિતિઓ"
+
+msgid "Live incident map"
+msgstr "જીવંત ઘટના નકશો"
+
+msgid "Live weather unavailable"
+msgstr "જીવંત હવામાન અનુપલબ્ધ"
+
+msgid "Local conditions and the forecast for %(city)s."
+msgstr "સ્થાનિક પરિસ્થિતિઓ અને %(city)s માટે આગાહી."
+
+msgid "Local guide"
+msgstr "સ્થાનિક માર્ગદર્શિકા"
+
+msgid ""
+"Local service guidance only. Messages and attachments are not sent to an AI "
+"service. Configure OPENAI_API_KEY on the server to enable AI replies."
+msgstr ""
+"માત્ર સ્થાનિક સેવા માર્ગદર્શન. સંદેશાઓ અને જોડાણો AI સેવાને મોકલવામાં આવતા "
+"નથી. AI જવાબોને સક્ષમ કરવા માટે સર્વર પર OPENAI_API_KEY ને ગોઠવો."
+
+msgid "Location"
+msgstr "સ્થાન"
+
+msgid "Location found: %(latitude)s, %(longitude)s"
+msgstr "સ્થાન મળ્યું: %(latitude)s, %(longitude)s"
+
+msgid "Location is not available in this browser."
+msgstr "આ બ્રાઉઝરમાં સ્થાન ઉપલબ્ધ નથી."
+
+msgid "Location list"
+msgstr "સ્થાન સૂચિ"
+
+msgid ""
+"Location permission was not granted. You can still enter a place in your "
+"message."
+msgstr ""
+"સ્થાનની પરવાનગી આપવામાં આવી ન હતી. તમે હજુ પણ તમારા સંદેશમાં સ્થાન દાખલ કરી "
+"શકો છો."
+
+msgid "Location:"
+msgstr "સ્થાન:"
+
+msgid "Login"
+msgstr "લૉગિન કરો"
+
+msgid "Logout"
+msgstr "લોગઆઉટ"
+
+msgid "Long-running landfill and waste processing area."
+msgstr "લાંબા સમયથી ચાલતો લેન્ડફિલ અને કચરો પ્રોસેસિંગ વિસ્તાર."
+
+msgid "Longitude"
+msgstr "રેખાંશ"
+
+msgid "Low"
+msgstr "નીચું"
+
+msgid "Low waste-management performance"
+msgstr "ઓછી કચરો-વ્યવસ્થાપન કામગીરી"
+
+msgid ""
+"MY COMPLAINTS\n"
+"\n"
+"Your complaints will appear here.\n"
+"\n"
+"Enter 0 to return."
+msgstr ""
+"મારી ફરિયાદો\n"
+"\n"
+"તમારી ફરિયાદો અહીં દેખાશે.\n"
+"\n"
+"પરત કરવા માટે 0 દાખલ કરો."
+
+msgid "Major landfill"
+msgstr "મુખ્ય લેન્ડફિલ"
+
+msgid ""
+"Major waste-management pressure is being tracked across cities. Explore the "
+"map to understand each location and report a local issue."
+msgstr ""
+"મુખ્ય કચરા-વ્યવસ્થાપનના દબાણને સમગ્ર શહેરોમાં ટ્રેક કરવામાં આવી રહ્યું છે. "
+"દરેક સ્થાનને સમજવા અને સ્થાનિક સમસ્યાની જાણ કરવા માટે નકશાનું અન્વેષણ કરો."
+
+msgid "Malayalam"
+msgstr "મલયાલમ"
+
+msgid "Map"
+msgstr "નકશો"
+
+msgid "Map filters"
+msgstr "નકશા ફિલ્ટર્સ"
+
+msgid "Map legend"
+msgstr "નકશો દંતકથા"
+
+msgid ""
+"Map tiles could not load. Check your internet connection; the location list "
+"remains available."
+msgstr ""
+"નકશાની ટાઇલ્સ લોડ કરી શકાઈ નથી. તમારું ઇન્ટરનેટ કનેક્શન તપાસો; સ્થાન સૂચિ "
+"ઉપલબ્ધ રહે છે."
+
+msgid "Marathi"
+msgstr "મરાઠી"
+
+msgid "Medium"
+msgstr "મધ્યમ"
+
+msgid ""
+"Messages are sent securely to OpenAI to generate replies. Do not share "
+"passwords or sensitive personal information. Attachments stay on this device"
+" and are not sent."
+msgstr ""
+"સંદેશાઓ જવાબો જનરેટ કરવા માટે OpenAI ને સુરક્ષિત રીતે મોકલવામાં આવે છે. "
+"પાસવર્ડ અથવા સંવેદનશીલ વ્યક્તિગત માહિતી શેર કરશો નહીં. જોડાણો આ ઉપકરણ પર રહે"
+" છે અને મોકલવામાં આવતા નથી."
+
+msgid "My complaints"
+msgstr "મારી ફરિયાદો"
+
+msgid "Name:"
+msgstr "નામ:"
+
+msgid "Navigation"
+msgstr "નેવિગેશન"
+
+msgid "Need to report an issue at your current location?"
+msgstr "તમારા વર્તમાન સ્થાન પર સમસ્યાની જાણ કરવાની જરૂર છે?"
+
+msgid "New Complaint"
+msgstr "નવી ફરિયાદ"
+
+msgid "New report"
+msgstr "નવો અહેવાલ"
+
+msgid "Next"
+msgstr "આગળ"
+
+msgid "No active incidents available yet."
+msgstr "હજી સુધી કોઈ સક્રિય ઘટનાઓ ઉપલબ્ધ નથી."
+
+msgid "No complaint is recorded at this exact place yet."
+msgstr "આ ચોક્કસ સ્થળે હજુ સુધી કોઈ ફરિયાદ નોંધાઈ નથી."
+
+msgid "No complaints yet"
+msgstr "હજુ સુધી કોઈ ફરિયાદ નથી"
+
+msgid "No place found for %(query)s."
+msgstr "%(query)s માટે કોઈ સ્થાન મળ્યું નથી."
+
+msgid "No reported problems matched that search."
+msgstr "તે શોધ સાથે મેળ ખાતી કોઈ સમસ્યાની જાણ થઈ નથી."
+
+msgid "OUR SERVICES"
+msgstr "અમારી સેવાઓ"
+
+msgid "Odia"
+msgstr "ઓડિયા"
+
+msgid "One of Delhi's largest landfill sites."
+msgstr "દિલ્હીની સૌથી મોટી લેન્ડફિલ સાઇટ્સમાંની એક."
+
+msgid "Open"
+msgstr "ખોલો"
+
+msgid "Open Live Map"
+msgstr "લાઇવ નકશો ખોલો"
+
+msgid "Open a report"
+msgstr "એક રિપોર્ટ ખોલો"
+
+msgid "Open live map"
+msgstr "લાઇવ નકશો ખોલો"
+
+msgid "Open the map"
+msgstr "નકશો ખોલો"
+
+msgid ""
+"Open your reports to review the current status and details of complaints you"
+" have submitted."
+msgstr ""
+"તમે સબમિટ કરેલી ફરિયાદોની વર્તમાન સ્થિતિ અને વિગતોની સમીક્ષા કરવા માટે તમારા"
+" રિપોર્ટ્સ ખોલો."
+
+msgid "OpenWeather API key was rejected"
+msgstr "OpenWeather API કી નકારવામાં આવી હતી"
+
+msgid "Other"
+msgstr "અન્ય"
+
+msgid "Other Issues"
+msgstr "અન્ય મુદ્દાઓ"
+
+msgid "Page not found."
+msgstr "પૃષ્ઠ મળ્યું નથી."
+
+msgid "Password"
+msgstr "પાસવર્ડ"
+
+msgid "Pending"
+msgstr "બાકી છે"
+
+msgid "Phone status"
+msgstr "ફોન સ્થિતિ"
+
+msgid "Pick Location on Map"
+msgstr "નકશા પર સ્થાન પસંદ કરો"
+
+msgid ""
+"Place search is temporarily unavailable. Try a complaint title or location."
+msgstr ""
+"સ્થાન શોધ અસ્થાયી રૂપે અનુપલબ્ધ છે. ફરિયાદનું શીર્ષક અથવા સ્થાન અજમાવો."
+
+msgid "Plastic waste and blocked drainage remain major concerns."
+msgstr "પ્લાસ્ટિક કચરો અને અવરોધિત ડ્રેનેજ મુખ્ય ચિંતા રહે છે."
+
+msgid "Please check your login details and try again."
+msgstr "કૃપા કરીને તમારી લૉગિન વિગતો તપાસો અને ફરી પ્રયાસ કરો."
+
+msgid "Please describe the problem:"
+msgstr "કૃપા કરીને સમસ્યાનું વર્ણન કરો:"
+
+msgid "Please enter the location of the problem:"
+msgstr "કૃપા કરીને સમસ્યાનું સ્થાન દાખલ કરો:"
+
+msgid "Popular queries"
+msgstr "લોકપ્રિય પ્રશ્નો"
+
+msgid "Press Enter to send. Use Shift and Enter for a new line."
+msgstr "મોકલવા માટે Enter દબાવો. નવી લાઇન માટે Shift અને Enter નો ઉપયોગ કરો."
+
+msgid "Pressure"
+msgstr "દબાણ"
+
+msgid "Previous"
+msgstr "ગત"
+
+msgid "Priority"
+msgstr "પ્રાથમિકતા"
+
+msgid "Priority routing enabled"
+msgstr "પ્રાધાન્યતા રૂટીંગ સક્ષમ"
+
+msgid "Priority:"
+msgstr "પ્રાધાન્યતા:"
+
+msgid "Profile"
+msgstr "પ્રોફાઇલ"
+
+msgid "Public Transport"
+msgstr "જાહેર પરિવહન"
+
+msgid "Public services updated"
+msgstr "જાહેર સેવાઓ અપડેટ કરી"
+
+msgid "Punjabi"
+msgstr "પંજાબી"
+
+msgid "Quick actions"
+msgstr "ઝડપી ક્રિયાઓ"
+
+msgid ""
+"REPORT COMPLAINT\n"
+"\n"
+"1. Road\n"
+"2. Water\n"
+"3. Garbage\n"
+"4. Street Light\n"
+"5. Drainage\n"
+"6. Other\n"
+"\n"
+"Enter category:"
+msgstr ""
+"ફરિયાદની જાણ કરો\n"
+"\n"
+"1. રોડ\n"
+"2. પાણી\n"
+"3. કચરો\n"
+"4. સ્ટ્રીટ લાઈટ\n"
+"5. ડ્રેનેજ\n"
+"6. અન્ય\n"
+"\n"
+"શ્રેણી દાખલ કરો:"
+
+msgid "Real Time"
+msgstr "વાસ્તવિક સમય"
+
+msgid "Real-Time"
+msgstr "રીઅલ-ટાઇમ"
+
+msgid "Receive instant updates and notifications."
+msgstr "ત્વરિત અપડેટ્સ અને સૂચનાઓ પ્રાપ્ત કરો."
+
+msgid "Received"
+msgstr "પ્રાપ્ત"
+
+msgid "Recent Complaints"
+msgstr "તાજેતરની ફરિયાદો"
+
+msgid "Recent actions"
+msgstr "તાજેતરની ક્રિયાઓ"
+
+msgid "Recent actions and this conversation were cleared."
+msgstr "તાજેતરની ક્રિયાઓ અને આ વાતચીત સાફ કરવામાં આવી હતી."
+
+msgid "Recent complaints"
+msgstr "તાજેતરની ફરિયાદો"
+
+msgid "Recent incidents"
+msgstr "તાજેતરના બનાવો"
+
+msgid "Refresh weather"
+msgstr "હવામાન તાજું કરો"
+
+msgid "Register"
+msgstr "નોંધણી કરો"
+
+msgid ""
+"Register to report issues, track civic updates, and help your city stay "
+"informed."
+msgstr ""
+"સમસ્યાઓની જાણ કરવા માટે નોંધણી કરો, નાગરિક અપડેટ્સ ટ્રૅક કરો અને તમારા "
+"શહેરને માહિતગાર રહેવામાં સહાય કરો."
+
+msgid "Rejected"
+msgstr "ફગાવી દીધી"
+
+msgid "Reliable"
+msgstr "વિશ્વસનીય"
+
+msgid "Remove attachment"
+msgstr "જોડાણ દૂર કરો"
+
+msgid "Repeat Password"
+msgstr "પાસવર્ડ પુનરાવર્તિત કરો"
+
+msgid "Report Complaint"
+msgstr "ફરિયાદની જાણ કરો"
+
+msgid "Report Emergency"
+msgstr "કટોકટીની જાણ કરો"
+
+msgid "Report Environment Issue"
+msgstr "પર્યાવરણ સમસ્યાની જાણ કરો"
+
+msgid "Report Garbage Issue"
+msgstr "કચરાના મુદ્દાની જાણ કરો"
+
+msgid "Report Road Damage"
+msgstr "રોડ નુકસાનની જાણ કરો"
+
+msgid "Report Street Light Issue"
+msgstr "સ્ટ્રીટ લાઇટની સમસ્યાની જાણ કરો"
+
+msgid "Report Water Issue"
+msgstr "પાણીની સમસ્યાની જાણ કરો"
+
+msgid "Report a new incident"
+msgstr "નવી ઘટનાની જાણ કરો"
+
+msgid "Report a water issue"
+msgstr "પાણીની સમસ્યાની જાણ કરો"
+
+msgid "Report accidents, emergencies and urgent civic incidents."
+msgstr "અકસ્માતો, કટોકટી અને તાત્કાલિક નાગરિક ઘટનાઓની જાણ કરો."
+
+msgid "Report an Issue"
+msgstr "સમસ્યાની જાણ કરો"
+
+msgid "Report an issue"
+msgstr "સમસ્યાની જાણ કરો"
+
+msgid "Report an issue in your area. Help us make your city better!"
+msgstr ""
+"તમારા વિસ્તારમાં સમસ્યાની જાણ કરો. તમારા શહેરને વધુ સારું બનાવવામાં અમારી "
+"સહાય કરો!"
+
+msgid "Report broken or non-working street lights in your area."
+msgstr "તમારા વિસ્તારમાં તૂટેલી અથવા કામ ન કરતી સ્ટ્રીટ લાઇટની જાણ કરો."
+
+msgid "Report complaint"
+msgstr "ફરિયાદની જાણ કરો"
+
+msgid "Report garbage"
+msgstr "કચરાની જાણ કરો"
+
+msgid "Report garbage overflow, missed collection and waste issues."
+msgstr "કચરો ઓવરફ્લો, ચૂકી ગયેલ સંગ્રહ અને કચરાની સમસ્યાઓની જાણ કરો."
+
+msgid "Report leakage, contamination and supply problems."
+msgstr "લિકેજ, દૂષણ અને પુરવઠાની સમસ્યાઓની જાણ કરો."
+
+msgid "Report pollution, illegal dumping and environmental concerns."
+msgstr "પ્રદૂષણ, ગેરકાયદે ડમ્પિંગ અને પર્યાવરણીય ચિંતાઓની જાણ કરો."
+
+msgid "Report potholes, damaged roads and unsafe pathways."
+msgstr "ખાડાઓ, ક્ષતિગ્રસ્ત રસ્તાઓ અને અસુરક્ષિત માર્ગોની જાણ કરો."
+
+msgid "Report waste or cleanliness issues"
+msgstr "કચરો અથવા સ્વચ્છતા સમસ્યાઓની જાણ કરો"
+
+msgid "Reported This Month"
+msgstr "આ મહિને અહેવાલ"
+
+msgid "Reporting garbage, road, or water issues"
+msgstr "કચરો, માર્ગ અથવા પાણીની સમસ્યાઓની જાણ કરવી"
+
+msgid "Resolved"
+msgstr "ઉકેલાઈ"
+
+msgid "Return home"
+msgstr "ઘરે પાછા ફરો"
+
+msgid "Road"
+msgstr "રોડ"
+
+msgid "Road Damage"
+msgstr "રોડ ડેમેજ"
+
+msgid "Road repair request"
+msgstr "રસ્તાના સમારકામની વિનંતી"
+
+msgid "Safe authentication and protected citizen data."
+msgstr "સુરક્ષિત પ્રમાણીકરણ અને સુરક્ષિત નાગરિક ડેટા."
+
+msgid "Search"
+msgstr "શોધો"
+
+msgid "Search a city"
+msgstr "એક શહેર શોધો"
+
+msgid "Search a place to see nearby reported problems and garbage hotspots."
+msgstr "નજીકના અહેવાલ સમસ્યાઓ અને કચરાના હોટસ્પોટ્સ જોવા માટે સ્થળ શોધો."
+
+msgid "Search a place, street, or ward"
+msgstr "સ્થળ, શેરી અથવા વોર્ડ શોધો"
+
+msgid "Search city"
+msgstr "શહેર શોધો"
+
+msgid "Search complaints..."
+msgstr "ફરિયાદો શોધો..."
+
+msgid "Search for a place"
+msgstr "સ્થળ શોધો"
+
+msgid "Searching for %(query)s..."
+msgstr "%(query)s માટે શોધી રહ્યાં છીએ..."
+
+msgid "Secure"
+msgstr "સુરક્ષિત"
+
+msgid "Secure access"
+msgstr "સુરક્ષિત ઍક્સેસ"
+
+msgid "Select language"
+msgstr "ભાષા પસંદ કરો"
+
+msgid "Selected attachment preview"
+msgstr "પસંદ કરેલ જોડાણ પૂર્વાવલોકન"
+
+msgid "Selected complaint image preview"
+msgstr "પસંદ કરેલ ફરિયાદ છબી પૂર્વાવલોકન"
+
+msgid "Send"
+msgstr "મોકલો"
+
+msgid "Send a message to continue."
+msgstr "ચાલુ રાખવા માટે એક સંદેશ મોકલો."
+
+msgid "Send a valid chat message."
+msgstr "માન્ય ચેટ સંદેશ મોકલો."
+
+msgid "Send a valid user message."
+msgstr "માન્ય વપરાશકર્તા સંદેશ મોકલો."
+
+msgid "Server error."
+msgstr "સર્વર ભૂલ."
+
+msgid "Session expired. Enter your mobile number to restart:"
+msgstr "સત્ર સમાપ્ત થયું. પુનઃપ્રારંભ કરવા માટે તમારો મોબાઈલ નંબર દાખલ કરો:"
+
+msgid "Showing %(place)s. Existing complaint markers remain visible nearby."
+msgstr ""
+"%(place)s બતાવી રહ્યું છે. હાલના ફરિયાદ માર્કર્સ નજીકમાં દૃશ્યમાન રહે છે."
+
+msgid "Showing all locations."
+msgstr "બધાં સ્થાનો બતાવી રહ્યાં છીએ."
+
+msgid "Showing citizen reports."
+msgstr "નાગરિક અહેવાલો દર્શાવે છે."
+
+msgid "Showing garbage hotspots."
+msgstr "કચરાના હોટસ્પોટ્સ બતાવે છે."
+
+msgid "Sign In"
+msgstr "સાઇન ઇન કરો"
+
+msgid "Sign Up"
+msgstr "સાઇન અપ કરો"
+
+msgid ""
+"Sign in to monitor civic updates, manage reports, and stay connected with "
+"your city."
+msgstr ""
+"નાગરિક અપડેટ્સનું નિરીક્ષણ કરવા, રિપોર્ટ્સનું સંચાલન કરવા અને તમારા શહેર "
+"સાથે જોડાયેલા રહેવા માટે સાઇન ઇન કરો."
+
+msgid "Smart City."
+msgstr "સ્માર્ટ સિટી."
+
+msgid "Smart Features"
+msgstr "સ્માર્ટ ફીચર્સ"
+
+msgid "Smart Traffic System Launch"
+msgstr "સ્માર્ટ ટ્રાફિક સિસ્ટમ લોન્ચ"
+
+msgid "Smarter city,"
+msgstr "સ્માર્ટ સિટી,"
+
+msgid "Something went wrong on the server. Please try again later."
+msgstr "સર્વર પર કંઈક ખોટું થયું. કૃપા કરીને પછીથી ફરી પ્રયાસ કરો."
+
+msgid "Start a report"
+msgstr "રિપોર્ટ શરૂ કરો"
+
+msgid "Status:"
+msgstr "સ્થિતિ:"
+
+msgid "Stay connected with your city"
+msgstr "તમારા શહેર સાથે જોડાયેલા રહો"
+
+msgid ""
+"Stay informed about important city updates, maintenance schedules and public"
+" notices."
+msgstr ""
+"મહત્વપૂર્ણ શહેરના અપડેટ્સ, જાળવણી સમયપત્રક અને જાહેર સૂચનાઓ વિશે માહિતગાર "
+"રહો."
+
+msgid "Street Light"
+msgstr "સ્ટ્રીટ લાઈટ"
+
+msgid "Street Light Issues"
+msgstr "સ્ટ્રીટ લાઇટના પ્રશ્નો"
+
+msgid "Street light"
+msgstr "સ્ટ્રીટ લાઈટ"
+
+msgid "Stronger Together."
+msgstr "એકસાથે મજબૂત."
+
+msgid "Submit Complaint"
+msgstr "ફરિયાદ સબમિટ કરો"
+
+msgid ""
+"Submit a new complaint with a few clicks and track updates from your "
+"dashboard."
+msgstr ""
+"થોડા ક્લિક્સ સાથે નવી ફરિયાદ સબમિટ કરો અને તમારા ડેશબોર્ડથી અપડેટ્સ ટ્રૅક "
+"કરો."
+
+msgid "Submit anonymously"
+msgstr "અજ્ઞાત રૂપે સબમિટ કરો"
+
+msgid "Submitted:"
+msgstr "સબમિટ કર્યું:"
+
+msgid "Successfully Completed"
+msgstr "સફળતાપૂર્વક પૂર્ણ થયું"
+
+msgid "Successfully completed"
+msgstr "સફળતાપૂર્વક પૂર્ણ થયું"
+
+msgid "Switch to dark mode"
+msgstr "ડાર્ક મોડ પર સ્વિચ કરો"
+
+msgid "Switch to light mode"
+msgstr "લાઇટ મોડ પર સ્વિચ કરો"
+
+msgid ""
+"TRACK COMPLAINT\n"
+"\n"
+"Enter your Complaint ID:"
+msgstr ""
+"ફરિયાદ ટ્રૅક કરો\n"
+"\n"
+"તમારી ફરિયાદ ID દાખલ કરો:"
+
+msgid "Tamil"
+msgstr "તમિલ"
+
+msgid "Telugu"
+msgstr "તેલુગુ"
+
+msgid "Temperature unit"
+msgstr "તાપમાન એકમ"
+
+msgid "The AI service is busy. Please try again shortly."
+msgstr "AI સેવા વ્યસ્ત છે. કૃપા કરીને ટૂંક સમયમાં ફરી પ્રયાસ કરો."
+
+msgid "The AI service is temporarily unavailable."
+msgstr "AI સેવા અસ્થાયી રૂપે અનુપલબ્ધ છે."
+
+msgid "The configured OpenAI key was rejected."
+msgstr "રૂપરેખાંકિત OpenAI કી નકારવામાં આવી હતી."
+
+msgid "The interactive map library could not load in this browser."
+msgstr "આ બ્રાઉઝરમાં ઇન્ટરેક્ટિવ મેપ લાઇબ્રેરી લોડ કરી શકાઈ નથી."
+
+msgid ""
+"The interactive map tiles are unavailable in this browser, so you can still "
+"browse every report and hotspot below."
+msgstr ""
+"ઇન્ટરેક્ટિવ મેપ ટાઇલ્સ આ બ્રાઉઝરમાં અનુપલબ્ધ છે, તેથી તમે હજુ પણ નીચેની દરેક"
+" રિપોર્ટ અને હોટસ્પોટને બ્રાઉઝ કરી શકો છો."
+
+msgid ""
+"The live city map shows reported incidents and hotspot locations. You can "
+"search by place and explore the available markers."
+msgstr ""
+"લાઇવ સિટી નકશો અહેવાલ થયેલ ઘટનાઓ અને હોટસ્પોટ સ્થાનો દર્શાવે છે. તમે સ્થળ "
+"દ્વારા શોધી શકો છો અને ઉપલબ્ધ માર્કર્સનું અન્વેષણ કરી શકો છો."
+
+msgid "The resource you requested does not exist or may have been moved."
+msgstr "તમે વિનંતી કરેલ સંસાધન અસ્તિત્વમાં નથી અથવા કદાચ ખસેડવામાં આવ્યું છે."
+
+msgid "The username or password you entered is incorrect. Please try again."
+msgstr ""
+"તમે દાખલ કરેલ વપરાશકર્તા નામ અથવા પાસવર્ડ ખોટો છે. કૃપા કરીને ફરી પ્રયાસ "
+"કરો."
+
+msgid ""
+"The weather page shows current conditions and the available forecast for a "
+"searched city."
+msgstr ""
+"હવામાન પૃષ્ઠ વર્તમાન પરિસ્થિતિઓ અને શોધાયેલ શહેર માટે ઉપલબ્ધ આગાહી દર્શાવે "
+"છે."
+
+msgid "Toggle navigation"
+msgstr "નેવિગેશન ટૉગલ કરો"
+
+msgid "Too many messages. Please wait a minute and try again."
+msgstr "ઘણા બધા સંદેશા. કૃપા કરીને એક મિનિટ રાહ જુઓ અને ફરી પ્રયાસ કરો."
+
+msgid "Total complaints"
+msgstr "કુલ ફરિયાદો"
+
+msgid "Total complaints:"
+msgstr "કુલ ફરિયાદો:"
+
+msgid "Track complaint"
+msgstr "ફરિયાદને ટ્રેક કરો"
+
+msgid "Track complaints directly from the city map."
+msgstr "ફરિયાદોને સીધા શહેરના નકશા પરથી ટ્રૅક કરો."
+
+msgid "Track this complaint with the current status below."
+msgstr "નીચેની વર્તમાન સ્થિતિ સાથે આ ફરિયાદને ટ્રૅક કરો."
+
+msgid "Tracked in the last hour"
+msgstr "છેલ્લા કલાકમાં ટ્રૅક કર્યું"
+
+msgid "Traffic"
+msgstr "ટ્રાફિક"
+
+msgid "Transparent"
+msgstr "પારદર્શક"
+
+msgid "Type your request..."
+msgstr "તમારી વિનંતી લખો..."
+
+msgid "UP NEXT"
+msgstr "આગળ ઉપર"
+
+msgid "USSD"
+msgstr "યુએસએસડી"
+
+msgid "USSD conversation"
+msgstr "યુએસએસડી વાતચીત"
+
+msgid "USSD menu choices"
+msgstr "યુએસએસડી મેનુ પસંદગીઓ"
+
+msgid "Unable to fetch weather"
+msgstr "હવામાન મેળવવામાં અસમર્થ"
+
+msgid "Unknown"
+msgstr "અજ્ઞાત"
+
+msgid "Updating weather..."
+msgstr "હવામાન અપડેટ કરી રહ્યું છે..."
+
+msgid "Upload Image"
+msgstr "છબી અપલોડ કરો"
+
+msgid "Urban waste pressure"
+msgstr "શહેરી કચરાના દબાણ"
+
+msgid "Urdu"
+msgstr "ઉર્દુ"
+
+msgid "Urgent"
+msgstr "અર્જન્ટ"
+
+msgid "Use my location"
+msgstr "મારા સ્થાનનો ઉપયોગ કરો"
+
+msgid "Username"
+msgstr "વપરાશકર્તા નામ"
+
+msgid "Username or email"
+msgstr "વપરાશકર્તા નામ અથવા ઇમેઇલ"
+
+msgid "Username:"
+msgstr "વપરાશકર્તા નામ:"
+
+msgid "View All Reports"
+msgstr "બધા અહેવાલો જુઓ"
+
+msgid "View City Updates"
+msgstr "શહેરના અપડેટ્સ જુઓ"
+
+msgid "View Details"
+msgstr "વિગતો જુઓ"
+
+msgid "View Live Map"
+msgstr "જીવંત નકશો જુઓ"
+
+msgid "View My Reports"
+msgstr "મારા અહેવાલો જુઓ"
+
+msgid "View Traffic Map"
+msgstr "ટ્રાફિક નકશો જુઓ"
+
+msgid "View Weather"
+msgstr "હવામાન જુઓ"
+
+msgid "View all"
+msgstr "બધા જુઓ"
+
+msgid "View hotspots"
+msgstr "હોટસ્પોટ જુઓ"
+
+msgid "View hourly details"
+msgstr "કલાકદીઠ વિગતો જુઓ"
+
+msgid "View my reports"
+msgstr "મારા અહેવાલો જુઓ"
+
+msgid "View nearby civic issue hotspots"
+msgstr "નજીકના નાગરિક સમસ્યાના હોટસ્પોટ્સ જુઓ"
+
+msgid ""
+"WEATHER\n"
+"\n"
+"Weather information will be\n"
+"connected to the CityPulse\n"
+"weather service.\n"
+"\n"
+"Enter 0 to return."
+msgstr ""
+"હવામાન\n"
+"\n"
+"હવામાનની માહિતી હશે\n"
+"સિટી પલ્સ સાથે જોડાયેલ છે\n"
+"હવામાન સેવા.\n"
+"\n"
+"પરત કરવા માટે 0 દાખલ કરો."
+
+msgid "WHY CITYPULSE"
+msgstr "શા માટે સિટીપલ્સ"
+
+msgid "Waiting for location permission..."
+msgstr "સ્થાનની પરવાનગીની રાહ જોઈ રહ્યાં છીએ..."
+
+msgid "Ward Number"
+msgstr "વોર્ડ નંબર"
+
+msgid "Ward:"
+msgstr "વોર્ડ:"
+
+msgid "Waste dumping zone"
+msgstr "કચરો ડમ્પિંગ ઝોન"
+
+msgid "Waste-processing capacity and illegal dumping are concerns."
+msgstr "કચરાની પ્રક્રિયા કરવાની ક્ષમતા અને ગેરકાયદે ડમ્પિંગ ચિંતાનો વિષય છે."
+
+msgid "Water"
+msgstr "પાણી"
+
+msgid "Water Leakage"
+msgstr "પાણી લિકેજ"
+
+msgid "Water Supply"
+msgstr "પાણી પુરવઠો"
+
+msgid "Water Supply Maintenance"
+msgstr "પાણી પુરવઠાની જાળવણી"
+
+msgid "Water supply issue"
+msgstr "પાણી પુરવઠાની સમસ્યા"
+
+msgid ""
+"Water supply will be temporarily unavailable in selected zones from 10 PM to"
+" 4 AM."
+msgstr ""
+"પસંદ કરેલ ઝોનમાં રાત્રે 10 PM થી 4 AM સુધી પાણી પુરવઠો અસ્થાયી રૂપે અનુપલબ્ધ"
+" રહેશે."
+
+msgid "Weather"
+msgstr "હવામાન"
+
+msgid "Weather API key not configured"
+msgstr "હવામાન API કી ગોઠવેલ નથી"
+
+msgid "Weather insights"
+msgstr "હવામાન આંતરદૃષ્ટિ"
+
+msgid "Weather overview"
+msgstr "હવામાન ઝાંખી"
+
+msgid "Weather service unavailable. Please try later."
+msgstr "હવામાન સેવા અનુપલબ્ધ. કૃપા કરીને પછીથી પ્રયાસ કરો."
+
+msgid "Welcome back"
+msgstr "ફરી સ્વાગત છે"
+
+msgid "Welcome back to CityPulse"
+msgstr "CityPulse માં ફરી સ્વાગત છે"
+
+msgid "Welcome back, %(username)s!"
+msgstr "ફરી સ્વાગત છે, %(username)s!"
+
+msgid ""
+"Welcome to CityPulse\n"
+"\n"
+"    1. Report Complaint\n"
+"    2. Track Complaint\n"
+"    3. Emergency\n"
+"    4. Weather\n"
+"    5. My Complaints\n"
+"\n"
+"    Enter your choice:"
+msgstr ""
+"CityPulse માં આપનું સ્વાગત છે\n"
+"\n"
+"    1. ફરિયાદની જાણ કરો\n"
+"    2. ટ્રૅક ફરિયાદ\n"
+"    3. કટોકટી\n"
+"    4. હવામાન\n"
+"    5. મારી ફરિયાદો\n"
+"\n"
+"    તમારી પસંદગી દાખલ કરો:"
+
+msgid ""
+"Welcome to CityPulse\n"
+"\n"
+"    Enter your mobile number to continue:"
+msgstr ""
+"CityPulse માં આપનું સ્વાગત છે\n"
+"\n"
+"    ચાલુ રાખવા માટે તમારો મોબાઈલ નંબર દાખલ કરો:"
+
+msgid ""
+"Welcome to CityPulse\n"
+"\n"
+"1. Report Complaint\n"
+"2. Track Complaint\n"
+"3. Emergency\n"
+"4. Weather\n"
+"5. My Complaints\n"
+"\n"
+"Enter your choice:"
+msgstr ""
+"CityPulse માં આપનું સ્વાગત છે\n"
+"\n"
+"1. ફરિયાદની જાણ કરો\n"
+"2. ટ્રૅક ફરિયાદ\n"
+"3. કટોકટી\n"
+"4. હવામાન\n"
+"5. મારી ફરિયાદો\n"
+"\n"
+"તમારી પસંદગી દાખલ કરો:"
+
+msgid "Wind speed"
+msgstr "પવનની ઝડપ"
+
+msgid "You have 0 complaints"
+msgstr "તમારી પાસે 0 ફરિયાદો છે"
+
+msgid "Your Complaints"
+msgstr "તમારી ફરિયાદો"
+
+msgid "Your account has been created. You can log in now."
+msgstr "તમારું એકાઉન્ટ બનાવવામાં આવ્યું છે. તમે હવે લૉગ ઇન કરી શકો છો."
+
+msgid "Your latest submitted reports"
+msgstr "તમારી નવીનતમ સબમિટ રિપોર્ટ્સ"
+
+msgid "Your message"
+msgstr "તમારો સંદેશ"
+
+msgid "Your new report will appear here."
+msgstr "તમારો નવો રિપોર્ટ અહીં દેખાશે."
+
+msgid "Your recent assistant actions will appear here."
+msgstr "તમારી તાજેતરની સહાયક ક્રિયાઓ અહીં દેખાશે."
+
+msgid ""
+"Your report list is empty. Submit your first complaint to see it appear "
+"here."
+msgstr ""
+"તમારી રિપોર્ટ સૂચિ ખાલી છે. તમારી પ્રથમ ફરિયાદ અહીં દેખાય તે જોવા માટે સબમિટ"
+" કરો."
+
+msgid "Your response"
+msgstr "તમારો પ્રતિભાવ"
+
+msgid "Your submitted issues will appear here."
+msgstr "તમારી સબમિટ કરેલી સમસ્યાઓ અહીં દેખાશે."
+
+msgid "better living."
+msgstr "વધુ સારું જીવન."
+
+msgid "found."
+msgstr "મળી"
+
+msgid "high-priority zones"
+msgstr "ઉચ્ચ પ્રાધાન્યતા ઝોન"
+
+msgid "new reports"
+msgstr "નવા અહેવાલો"
+
+msgid "optional"
+msgstr "વૈકલ્પિક"
+
+msgid "rain"
+msgstr "વરસાદ"
+
+msgid "reported problem"
+msgstr "સમસ્યાની જાણ કરી"
+
+msgid "reported problem found near %(query)s."
+msgstr "%(query)s નજીક મળી આવેલ સમસ્યાની જાણ કરી."
+
+msgid "reported problems"
+msgstr "સમસ્યાઓની જાણ કરી"
+
+msgid "reported problems found near %(query)s."
+msgstr "%(query)s નજીક મળી આવેલી સમસ્યાઓની જાણ કરી."
+
+msgid "response rate"
+msgstr "પ્રતિભાવ દર"
+
+msgid "© 2026 CityPulse. All Rights Reserved."
+msgstr "© 2026 સિટીપલ્સ. સર્વાધિકાર સુરક્ષિત."
+
+msgid "%(hotspot_count)s garbage hotspot tracked"
+msgid_plural "%(hotspot_count)s garbage hotspots tracked"
+msgstr[0] "%(hotspot_count)s ગાર્બેજ હોટસ્પોટ ટ્રૅક કર્યું"
+msgstr[1] "%(hotspot_count)s કચરાના હોટસ્પોટ્સ ટ્રેક કર્યા"

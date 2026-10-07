@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card bg-dark border-secondary p-4">
+                <h2>📍 {% trans "Complaint Status" %}</h2>
+                <p class="text-muted">{% trans "Track this complaint with the current status below." %}</p>
+                <div class="mt-4">
+                    <h4>{{ complaint.title }}</h4>
+                    <p>{{ complaint.description }}</p>
+                    <div class="status-progress mt-4"><span class="status-progress__bar" style="width: 45%"></span></div>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="badge bg-info">{{ complaint.get_status_display }}</span>
+                        <a class="btn btn-outline-light" href="{% url 'complaint_detail' complaint.pk %}">{% trans "View Details" %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% for field in form %}
+    <div class="mb-3">
+        {{ field.label_tag }}
+        {{ field }}
+        {% if field.help_text %}
+            <div class="form-text text-muted">{{ field.help_text }}</div>
+        {% endif %}
+        {% for error in field.errors %}
+            <div class="field-error" role="alert"><i class="bi bi-exclamation-circle-fill"></i> {{ error }}</div>
+        {% endfor %}
+    </div>
+{% endfor %}

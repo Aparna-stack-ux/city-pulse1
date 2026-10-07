@@ -1,0 +1,153 @@
+html[data-theme] body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+html[data-theme] #header {
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+html[data-theme] #header a,
+html[data-theme] #user-tools,
+html[data-theme] #user-tools a,
+html[data-theme] #branding h1,
+html[data-theme] #branding h1 a {
+    color: var(--text-primary);
+}
+
+html[data-theme] #content,
+html[data-theme] #container,
+html[data-theme] .content,
+html[data-theme] .module,
+html[data-theme] .inline-group,
+html[data-theme] .selector-chosen {
+    color: var(--text-primary);
+}
+
+html[data-theme] .module,
+html[data-theme] .inline-group,
+html[data-theme] .selector-chosen,
+html[data-theme] .paginator,
+html[data-theme] .submit-row {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+    box-shadow: var(--shadow);
+}
+
+html[data-theme] .module h2,
+html[data-theme] .module caption,
+html[data-theme] .inline-group h2,
+html[data-theme] .selector-chosen h2 {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+html[data-theme] .breadcrumbs {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+}
+
+html[data-theme] .breadcrumbs a,
+html[data-theme] a:link,
+html[data-theme] a:visited {
+    color: var(--primary-hover);
+}
+
+html[data-theme] #nav-sidebar,
+html[data-theme] #nav-sidebar .current-app .section,
+html[data-theme] #nav-sidebar .current-model {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+html[data-theme] #nav-sidebar .current-app .section,
+html[data-theme] #nav-sidebar .current-model {
+    border-color: var(--border-color);
+}
+
+html[data-theme] table,
+html[data-theme] .results,
+html[data-theme] .results table,
+html[data-theme] .results td,
+html[data-theme] .results th,
+html[data-theme] .form-row {
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+html[data-theme] .results thead th,
+html[data-theme] .results thead th a {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+html[data-theme] .row1,
+html[data-theme] .row2,
+html[data-theme] tr:nth-child(even) {
+    background: var(--card-bg);
+    color: var(--text-primary);
+}
+
+html[data-theme] label,
+html[data-theme] .help,
+html[data-theme] .helptext,
+html[data-theme] .quiet,
+html[data-theme] .selector-available h2,
+html[data-theme] .selector-chosen h2 {
+    color: var(--text-secondary);
+}
+
+html[data-theme] input,
+html[data-theme] select,
+html[data-theme] textarea,
+html[data-theme] .vTextField,
+html[data-theme] .vLargeTextField {
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    color: var(--input-text);
+}
+
+html[data-theme] input::placeholder,
+html[data-theme] textarea::placeholder {
+    color: var(--placeholder);
+    opacity: 1;
+}
+
+html[data-theme] input:focus,
+html[data-theme] select:focus,
+html[data-theme] textarea:focus {
+    border-color: var(--primary);
+    outline: 2px solid color-mix(in srgb, var(--primary) 24%, transparent);
+}
+
+html[data-theme] input[type="submit"],
+html[data-theme] .button,
+html[data-theme] a.button,
+html[data-theme] .submit-row input {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #ffffff;
+}
+
+.admin-theme-toggle {
+    align-items: center;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    color: var(--text-primary);
+    cursor: pointer;
+    display: inline-flex;
+    gap: 12px;
+    margin-left: 14px;
+    padding: 5px 12px;
+}
+
+.admin-theme-toggle span:first-child { color: #d18a00; }
+.admin-theme-toggle span:last-child { color: var(--primary); }
+
+@media (max-width: 767px) {
+    #branding h1 { align-items: center; display: flex; flex-wrap: wrap; gap: 8px; }
+    .admin-theme-toggle { margin-left: 0; }
+}

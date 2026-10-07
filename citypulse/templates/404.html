@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="text-center text-white">
+        <h1 class="display-1">404</h1>
+        <p class="lead">{% trans "Page not found." %}</p>
+        <p>{% trans "The resource you requested does not exist or may have been moved." %}</p>
+        <a href="{% url 'home' %}" class="btn btn-primary mt-3">{% trans "Return home" %}</a>
+    </div>
+</div>
+{% endblock %}

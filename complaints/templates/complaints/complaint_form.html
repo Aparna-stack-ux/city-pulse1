@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<main class="complaint-page">
+    <aside class="complaint-sidebar">
+        <a class="dashboard-brand" href="{% url 'home' %}"><i class="bi bi-buildings-fill"></i> CityPulse</a>
+        <nav class="dashboard-menu" aria-label="{% trans 'Complaint navigation' %}">
+            <a href="{% url 'dashboard' %}"><i class="bi bi-grid-1x2-fill"></i> {% trans "Dashboard" %}</a>
+            <a class="is-active" href="{% url 'complaint_create' %}"><i class="bi bi-file-earmark-plus"></i> {% trans "Complaints" %}</a>
+            <a href="{% url 'map' %}"><i class="bi bi-map"></i> {% trans "Live Map" %}</a>
+            <a href="{% url 'weather' %}"><i class="bi bi-cloud-sun"></i> {% trans "Weather" %}</a>
+            <a href="{% url 'chatbot' %}"><i class="bi bi-robot"></i> {% trans "AI Assistant" %}</a>
+        </nav>
+        <div class="complaint-sidebar-note">🏙️<strong>{% trans "Smarter city," %}<br>{% trans "better living." %}</strong></div>
+    </aside>
+
+    <section class="complaint-main">
+        <div class="complaint-form-panel">
+            <header class="complaint-panel-header"><div class="panel-icon">📄</div><div><h1>{% trans "New Complaint" %}</h1><p>{% trans "Report an issue in your area. Help us make your city better!" %}</p></div></header>
+            <form method="post" enctype="multipart/form-data" class="interactive-complaint-form">
+                {% csrf_token %}
+                {% if form.non_field_errors %}<div class="field-error" role="alert">{{ form.non_field_errors }}</div>{% endif %}
+                <div class="complaint-fields-grid">
+                    <div class="form-field-wide"><label for="{{ form.title.id_for_label }}">{% trans "Complaint Title" %} <span>*</span></label>{{ form.title }}{% for error in form.title.errors %}<div class="field-error">{{ error }}</div>{% endfor %}</div>
+                    <div><label for="{{ form.category.id_for_label }}">{% trans "Category" %} <span>*</span></label>{{ form.category }}{% for error in form.category.errors %}<div class="field-error">{{ error }}</div>{% endfor %}</div>
+                    <div><label for="{{ form.location.id_for_label }}">{% trans "Location" %} <span>*</span></label>{{ form.location }}{% for error in form.location.errors %}<div class="field-error">{{ error }}</div>{% endfor %}</div>
+                    <div><label for="{{ form.priority.id_for_label }}">{% trans "Priority" %} <span>*</span></label>{{ form.priority }}{% for error in form.priority.errors %}<div class="field-error">{{ error }}</div>{% endfor %}</div>
+                    <div class="form-field-wide"><label for="{{ form.description.id_for_label }}">{% trans "Description" %} <span>*</span></label>{{ form.description }}{% for error in form.description.errors %}<div class="field-error">{{ error }}</div>{% endfor %}</div>
+                    <div class="location-picker-wrap">
+                        <div class="location-picker-label">📍 {% trans "Pick Location on Map" %}</div>
+                        <div id="complaint-picker" class="complaint-picker" aria-label="{% trans 'Click to choose complaint location' %}"><span>{% trans "Click anywhere on the map to set location" %}</span></div>
+                        <div class="coordinate-fields"><div><label for="{{ form.latitude.id_for_label }}">{% trans "Latitude" %}</label>{{ form.latitude }}</div><div><label for="{{ form.longitude.id_for_label }}">{% trans "Longitude" %}</label>{{ form.longitude }}</div></div>
+                    </div>
+                    <div class="upload-box"><label for="{{ form.image.id_for_label }}">🖼️ {% trans "Upload Image" %} <small>({% trans "optional" %})</small></label>{{ form.image }}<div id="image-preview" class="image-preview d-none" data-preview-label="{% trans 'Selected complaint image preview' %}"></div><small>{% trans "Drag or click to upload JPG, PNG or WEBP" %}</small></div>
+                </div>
+                <div class="anonymous-check">{{ form.anonymous }} <label class="form-check-label" for="{{ form.anonymous.id_for_label }}">{% trans "Submit anonymously" %}</label></div>
+                <div class="complaint-form-actions"><a class="btn btn-outline-light" href="{% url 'dashboard' %}">{% trans "Cancel" %}</a><button class="btn btn-primary" type="submit">🚀 {% trans "Submit Complaint" %}</button></div>
+            </form>
+        </div>
+
+        <aside class="recent-complaints-panel">
+            <header class="complaint-panel-header compact"><div class="panel-icon">📋</div><div><h2>{% trans "Recent Complaints" %}</h2><p>{% trans "Your latest submitted reports" %}</p></div></header>
+            <div class="recent-search"><i class="bi bi-search"></i><input id="recent-complaint-search" type="search" placeholder="{% trans 'Search complaints...' %}"></div>
+            <div id="recent-complaint-list">
+                {% for complaint in recent_complaints %}
+                    <a class="recent-complaint-item" data-search="{{ complaint.title|lower }} {{ complaint.location|lower }} {{ complaint.get_category_display|lower }}" href="{% url 'complaint_detail' complaint.pk %}"><span class="recent-complaint-icon">{% if complaint.category == 'garbage' %}🗑️{% elif complaint.category == 'water' %}💧{% elif complaint.category == 'road' %}🛣️{% else %}📣{% endif %}</span><span><small>#CP-{{ complaint.pk|stringformat:'04d' }}</small><strong>{{ complaint.title }}</strong><em>📍 {{ complaint.location }}</em><em>{{ complaint.created_at|date:"DATETIME_FORMAT" }}</em></span><b>{{ complaint.get_status_display }}</b></a>
+                {% empty %}
+                    <div class="recent-empty">📭<strong>{% trans "No complaints yet" %}</strong><span>{% trans "Your new report will appear here." %}</span></div>
+                {% endfor %}
+            </div>
+            <a class="btn btn-primary w-100 mt-3" href="{% url 'complaint_list' %}">{% trans "View All Reports" %} →</a>
+        </aside>
+    </section>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const picker = document.getElementById('complaint-picker');
+    const latitude = document.getElementById('{{ form.latitude.id_for_label }}');
+    const longitude = document.getElementById('{{ form.longitude.id_for_label }}');
+    if (picker && latitude && longitude && window.L) {
+        const map = L.map(picker).setView([22.5937, 78.9629], 4);
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', { attribution: 'Tiles &copy; Esri', maxZoom: 18 }).addTo(map);
+        let marker;
+        map.on('click', function (event) {
+            latitude.value = event.latlng.lat.toFixed(6);
+            longitude.value = event.latlng.lng.toFixed(6);
+            if (marker) marker.setLatLng(event.latlng); else marker = L.marker(event.latlng).addTo(map);
+            picker.classList.add('has-location');
+        });
+    } else if (picker) {
+        picker.classList.add('picker-fallback');
+    }
+    const search = document.getElementById('recent-complaint-search');
+    search?.addEventListener('input', function () {
+        const query = search.value.toLowerCase();
+        document.querySelectorAll('.recent-complaint-item').forEach(item => item.hidden = !item.dataset.search.includes(query));
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "admin/base.html" %}
+{% load static i18n %}
+
+{% block title %}{{ title }} | CityPulse Administration{% endblock %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/depth.css' %}">
+{% endblock %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script>
+        try {
+            const savedTheme = localStorage.getItem('citypulse-theme');
+            document.documentElement.dataset.theme = savedTheme === 'dark' ? 'dark' : 'light';
+        } catch (error) {
+            document.documentElement.dataset.theme = 'light';
+        }
+    </script>
+    <script defer src="{% static 'js/theme.js' %}"></script>
+    <script defer src="{% static 'js/citypulse-3d-loader.js' %}?v=1"></script>
+{% endblock %}
+
+{% block branding %}
+    <h1 id="site-name">
+        <a href="{% url 'admin:index' %}">{% trans "CityPulse Administration" %}</a>
+        <button class="admin-theme-toggle" type="button" data-theme-toggle data-theme-label-light="{% trans 'Switch to light mode' %}" data-theme-label-dark="{% trans 'Switch to dark mode' %}" aria-label="{% trans 'Switch to dark mode' %}" title="{% trans 'Switch to dark mode' %}" aria-pressed="false">
+            <span aria-hidden="true">&#9728;</span>
+            <span aria-hidden="true">&#9790;</span>
+        </button>
+    </h1>
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<main class="assistant-page"
+    data-chat-endpoint="{% url 'chatbot' %}"
+    data-ai-ready="{{ chatbot_ready|yesno:'true,false' }}"
+    data-report-url="{% url 'complaint_create' %}"
+    data-reports-url="{% url 'complaint_list' %}"
+    data-map-url="{% url 'map' %}"
+    data-weather-url="{% url 'weather' %}"
+    data-dashboard-url="{% url 'dashboard' %}">
+    <div class="assistant-layout">
+        <aside class="assistant-quick-panel" aria-labelledby="quick-actions-title">
+            <div class="assistant-panel-heading">
+                <span class="assistant-heading-icon"><i class="bi bi-lightning-charge-fill" aria-hidden="true"></i></span>
+                <h2 id="quick-actions-title">{% trans "Quick actions" %}</h2>
+            </div>
+            <p class="assistant-panel-intro">{% trans "Get help with common city services quickly." %}</p>
+
+            <div class="assistant-action-list">
+                <button class="assistant-action-card action-report" type="button" data-chat-intent="garbage" data-chat-prompt="{% trans 'Help me report a garbage issue' %}">
+                    <span class="assistant-action-icon"><i class="bi bi-trash3-fill" aria-hidden="true"></i></span>
+                    <span><strong>{% trans "Report garbage" %}</strong><small>{% trans "Report waste or cleanliness issues" %}</small></span>
+                    <i class="bi bi-chevron-right assistant-action-arrow" aria-hidden="true"></i>
+                </button>
+                <button class="assistant-action-card action-map" type="button" data-chat-intent="map" data-chat-prompt="{% trans 'Find nearby hotspots' %}">
+                    <span class="assistant-action-icon"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i></span>
+                    <span><strong>{% trans "Find a hotspot" %}</strong><small>{% trans "View nearby civic issue hotspots" %}</small></span>
+                    <i class="bi bi-chevron-right assistant-action-arrow" aria-hidden="true"></i>
+                </button>
+                <button class="assistant-action-card action-emergency" type="button" data-chat-intent="emergency" data-chat-prompt="{% trans 'I need emergency help' %}">
+                    <span class="assistant-action-icon"><i class="bi bi-cone-striped" aria-hidden="true"></i></span>
+                    <span><strong>{% trans "Emergency help" %}</strong><small>{% trans "Get immediate assistance guidance" %}</small></span>
+                    <i class="bi bi-chevron-right assistant-action-arrow" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <div class="assistant-location-box">
+                <i class="bi bi-crosshair2" aria-hidden="true"></i>
+                <p>{% trans "Need to report an issue at your current location?" %}</p>
+                <button class="assistant-location-button" id="use-my-location" type="button"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> {% trans "Use my location" %}</button>
+                <span id="location-status" class="assistant-location-status" role="status" aria-live="polite"></span>
+            </div>
+        </aside>
+
+        <section class="assistant-chat-panel" aria-labelledby="assistant-title">
+            <header class="assistant-chat-header">
+                <span class="assistant-bot-avatar"><i class="bi bi-robot" aria-hidden="true"></i></span>
+                <div>
+                    <h1 id="assistant-title">{% trans "AI Assistant" %}</h1>
+                    <p>{% trans "Ask CityPulse for help with complaints, city services, or emergency guidance." %}</p>
+                </div>
+                <span class="assistant-online{% if chatbot_ready %} assistant-online--ai{% endif %}" id="assistant-status"><i></i>{% if chatbot_ready %}{% trans "AI ready" %}{% else %}{% trans "Local guide" %}{% endif %}</span>
+            </header>
+
+            <div id="chat-messages" class="assistant-conversation" aria-live="polite" aria-label="{% trans 'Conversation' %}">
+                <article class="chat-line chat-line--assistant">
+                    <span class="chat-avatar"><i class="bi bi-robot" aria-hidden="true"></i></span>
+                    <div class="chat-line-content">
+                        <div class="chat-message chat-message--assistant">
+                            <p>👋 {% trans "Hello! I'm CityPulse Assistant. I can help you with:" %}</p>
+                            <ul>
+                                <li>{% trans "Reporting garbage, road, or water issues" %}</li>
+                                <li>{% trans "Finding nearby hotspots" %}</li>
+                                <li>{% trans "Emergency assistance guidance" %}</li>
+                            </ul>
+                            <p>{% trans "How can I help you today?" %}</p>
+                        </div>
+                        <time class="chat-time" data-chat-time>{% trans "Just now" %}</time>
+                    </div>
+                </article>
+            </div>
+
+            <div class="assistant-composer-wrap">
+                <div id="chat-attachment-preview" class="chat-attachment-preview" aria-live="polite" hidden></div>
+                <form id="chat-form" class="assistant-composer">
+                    {% csrf_token %}
+                    <label class="visually-hidden" for="chat-input">{% trans "Your message" %}</label>
+                    <input id="chat-attachment" class="visually-hidden" type="file" accept="image/*,.pdf,.txt">
+                    <button class="composer-tool" type="button" id="attach-chat-file" aria-label="{% trans 'Attach a file' %}" title="{% trans 'Attach a file' %}"><i class="bi bi-paperclip" aria-hidden="true"></i></button>
+                    <button class="composer-tool" type="button" id="attach-chat-image" aria-label="{% trans 'Attach an image' %}" title="{% trans 'Attach an image' %}"><i class="bi bi-image" aria-hidden="true"></i></button>
+                    <textarea id="chat-input" rows="1" maxlength="1000" placeholder="{% trans 'Type your request...' %}" aria-describedby="chat-input-hint"></textarea>
+                    <span class="visually-hidden" id="chat-input-hint">{% trans "Press Enter to send. Use Shift and Enter for a new line." %}</span>
+                    <button class="assistant-send-button" type="submit"><i class="bi bi-send-fill" aria-hidden="true"></i><span>{% trans "Send" %}</span></button>
+                </form>
+                <p class="assistant-disclaimer" id="assistant-disclaimer">{% if chatbot_ready %}{% trans "Messages are sent securely to OpenAI to generate replies. Do not share passwords or sensitive personal information. Attachments stay on this device and are not sent." %}{% else %}{% trans "Local service guidance only. Messages and attachments are not sent to an AI service. Configure OPENAI_API_KEY on the server to enable AI replies." %}{% endif %} {% trans "For immediate danger, contact local emergency services." %}</p>
+            </div>
+        </section>
+
+        <aside class="assistant-discovery-panel" aria-label="{% trans 'Assistant shortcuts' %}">
+            <section class="assistant-side-section">
+                <div class="assistant-panel-heading">
+                    <span class="assistant-heading-icon assistant-heading-icon--gold"><i class="bi bi-stars" aria-hidden="true"></i></span>
+                    <h2>{% trans "Popular queries" %}</h2>
+                </div>
+                <div class="assistant-query-list">
+                    <button type="button" class="assistant-query" data-chat-intent="garbage" data-chat-prompt="{% trans 'Help me report garbage' %}"><span>{% trans "Report garbage" %}</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+                    <button type="button" class="assistant-query" data-chat-intent="map" data-chat-prompt="{% trans 'Find nearby hotspots' %}"><span>{% trans "Find nearby hotspots" %}</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+                    <button type="button" class="assistant-query" data-chat-intent="road" data-chat-prompt="{% trans 'How do I request a road repair?' %}"><span>{% trans "Road repair request" %}</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+                    <button type="button" class="assistant-query" data-chat-intent="water" data-chat-prompt="{% trans 'I have a water supply issue' %}"><span>{% trans "Water supply issue" %}</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+                    <button type="button" class="assistant-query" data-chat-intent="emergency" data-chat-prompt="{% trans 'I need emergency help' %}"><span>{% trans "Emergency contact" %}</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+                </div>
+            </section>
+
+            <section class="assistant-side-section assistant-recent-section">
+                <div class="assistant-panel-heading">
+                    <span class="assistant-heading-icon assistant-heading-icon--blue"><i class="bi bi-clock-history" aria-hidden="true"></i></span>
+                    <h2>{% trans "Recent actions" %}</h2>
+                    <button class="assistant-clear-history" type="button" id="clear-chat-history">{% trans "Clear" %}</button>
+                </div>
+                <div id="recent-chat-actions" class="assistant-recent-list">
+                    <p class="assistant-recent-empty">{% trans "Your recent assistant actions will appear here." %}</p>
+                </div>
+            </section>
+        </aside>
+    </div>
+</main>
+{{ chatbot_messages|json_script:'chatbot-messages' }}
+{% endblock %}

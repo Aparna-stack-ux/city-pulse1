@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<main class="weather-page">
+    <div class="container weather-container">
+        <header class="weather-page-header">
+            <div class="weather-page-title">
+                <span class="weather-title-icon"><i class="bi bi-cloud-sun-fill" aria-hidden="true"></i></span>
+                <div>
+                    <p class="eyebrow">{% trans "CITYPULSE / WEATHER" %}</p>
+                    <h1>{% trans "Weather overview" %}</h1>
+                    <p class="weather-subtitle">{% blocktrans with city=weather_summary.city %}Local conditions and the forecast for {{ city }}.{% endblocktrans %}</p>
+                </div>
+            </div>
+
+            <form id="weather-search-form" class="weather-search" method="get" role="search">
+                <label class="visually-hidden" for="weather-city">{% trans "Search city" %}</label>
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input id="weather-city" class="form-control" name="city" value="{{ weather_summary.city }}" list="weather-city-options" placeholder="{% trans 'Search a city' %}" autocomplete="off">
+                <datalist id="weather-city-options">
+                    <option value="Delhi"></option>
+                    <option value="Mumbai"></option>
+                    <option value="Bengaluru"></option>
+                    <option value="Chennai"></option>
+                    <option value="Nagercoil"></option>
+                </datalist>
+                <button class="btn btn-primary" type="submit"><i class="bi bi-arrow-right" aria-hidden="true"></i><span>{% trans "Search" %}</span></button>
+                <button class="weather-refresh" id="weather-refresh" type="button" aria-label="{% trans 'Refresh weather' %}" title="{% trans 'Refresh weather' %}"><i class="bi bi-arrow-clockwise" aria-hidden="true"></i></button>
+            </form>
+        </header>
+
+        <div id="weather-loading" class="weather-loading" role="status" aria-live="polite" hidden>
+            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+            <span>{% trans "Updating weather..." %}</span>
+        </div>
+
+        <div class="weather-dashboard-grid">
+            <section class="weather-current-panel" aria-labelledby="weather-city-name">
+                <div class="weather-current-heading">
+                    <div>
+                        <p class="weather-section-kicker">{% trans "CURRENT CONDITIONS" %}</p>
+                        <h2 id="weather-city-name"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> {{ weather_summary.city }}</h2>
+                        <p class="weather-condition-label">{{ weather_summary.description }}</p>
+                    </div>
+                    {% if weather_summary.icon %}
+                        <img class="weather-condition-image" src="https://openweathermap.org/img/wn/{{ weather_summary.icon }}@2x.png" alt="{{ weather_summary.description }}" width="88" height="88">
+                    {% else %}
+                        <span class="weather-condition-fallback"><i class="bi bi-cloud-sun-fill" aria-hidden="true"></i></span>
+                    {% endif %}
+                </div>
+
+                <div class="weather-temperature-block">
+                    {% if weather_summary.temperature is not None %}
+                        <strong class="weather-temperature" data-weather-temperature data-celsius="{{ weather_summary.temperature }}">{{ weather_summary.temperature|floatformat:0 }}</strong>
+                        <span class="weather-temperature-unit" data-weather-unit-label>°C</span>
+                    {% else %}
+                        <strong class="weather-temperature weather-temperature--empty">--</strong>
+                        <span class="weather-temperature-unit" data-weather-unit-label>°C</span>
+                    {% endif %}
+                    <span class="weather-feels-like">
+                        {% if weather_summary.feels_like is not None %}
+                            {% trans "Feels like" %} <span data-celsius="{{ weather_summary.feels_like }}">{{ weather_summary.feels_like|floatformat:0 }}</span><span data-weather-unit-label>°C</span>
+                        {% else %}
+                            {% trans "Live conditions" %}
+                        {% endif %}
+                    </span>
+                </div>
+
+                <div class="weather-current-metrics">
+                    <article class="weather-metric">
+                        <span class="weather-metric-icon"><i class="bi bi-wind" aria-hidden="true"></i></span>
+                        <span class="weather-metric-label">{% trans "Wind speed" %}</span>
+                        <strong>{% if weather_summary.wind_speed is not None %}{{ weather_summary.wind_speed|floatformat:1 }} m/s{% else %}--{% endif %}</strong>
+                    </article>
+                    <article class="weather-metric">
+                        <span class="weather-metric-icon"><i class="bi bi-droplet" aria-hidden="true"></i></span>
+                        <span class="weather-metric-label">{% trans "Humidity" %}</span>
+                        <strong>{% if weather_summary.humidity is not None %}{{ weather_summary.humidity }}%{% else %}--{% endif %}</strong>
+                    </article>
+                    <article class="weather-metric">
+                        <span class="weather-metric-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></span>
+                        <span class="weather-metric-label">{% trans "Pressure" %}</span>
+                        <strong>{% if weather_summary.pressure is not None %}{{ weather_summary.pressure }} hPa{% else %}--{% endif %}</strong>
+                    </article>
+                    <article class="weather-metric">
+                        <span class="weather-metric-icon"><i class="bi bi-thermometer-half" aria-hidden="true"></i></span>
+                        <span class="weather-metric-label">{% trans "High / low" %}</span>
+                        <strong>
+                            {% if weather_summary.temp_max is not None %}<span data-celsius="{{ weather_summary.temp_max }}">{{ weather_summary.temp_max|floatformat:0 }}</span>°{% else %}--{% endif %}
+                            /
+                            {% if weather_summary.temp_min is not None %}<span data-celsius="{{ weather_summary.temp_min }}">{{ weather_summary.temp_min|floatformat:0 }}</span>°{% else %}--{% endif %}
+                        </strong>
+                    </article>
+                </div>
+
+                {% if weather_summary.temperature is None %}
+                    <div class="alert alert-warning weather-unavailable" role="alert">
+                        <strong>{% trans "Live weather unavailable" %}</strong>
+                        <span>{{ weather_summary.description }}{% if weather_summary.source == 'fallback' %}. {% trans "Check the OpenWeather API key and try again." %}{% endif %}</span>
+                    </div>
+                {% endif %}
+            </section>
+
+            <section class="weather-forecast-panel" aria-labelledby="forecast-title">
+                <div class="weather-forecast-heading">
+                    <div>
+                        <p class="weather-section-kicker">{% trans "UP NEXT" %}</p>
+                        <h2 id="forecast-title">{% trans "5-day forecast" %}</h2>
+                    </div>
+                    <div class="weather-unit-switch" role="group" aria-label="{% trans 'Temperature unit' %}">
+                        <button type="button" data-weather-unit="C" aria-pressed="true">°C</button>
+                        <button type="button" data-weather-unit="F" aria-pressed="false">°F</button>
+                    </div>
+                </div>
+
+                {% if forecast %}
+                    <div class="weather-forecast-list" aria-label="{% trans 'Daily forecast' %}">
+                        {% for day in forecast %}
+                            <button class="weather-forecast-row{% if forloop.first %} is-selected{% endif %}" type="button" data-forecast-index="{{ forloop.counter0 }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}">
+                                <span class="forecast-date">{{ day.date_label }}</span>
+                                <span class="forecast-condition">
+                                    {% if day.icon %}<img src="https://openweathermap.org/img/wn/{{ day.icon }}.png" alt="" width="34" height="34">{% else %}<i class="bi bi-cloud-sun" aria-hidden="true"></i>{% endif %}
+                                    <span>{{ day.description }}</span>
+                                </span>
+                                <span class="forecast-temperatures"><strong data-celsius="{{ day.temp_max|floatformat:0 }}">{{ day.temp_max|floatformat:0 }}°</strong><span data-celsius="{{ day.temp_min|floatformat:0 }}">{{ day.temp_min|floatformat:0 }}°</span></span>
+                            </button>
+                        {% endfor %}
+                    </div>
+
+                    <div class="forecast-selected" aria-live="polite">
+                        <strong id="forecast-selected-date">{{ forecast.0.date_label }}</strong>
+                        <span id="forecast-selected-description">{{ forecast.0.description }}</span>
+                        <div class="forecast-selected-meta">
+                            <span><i class="bi bi-droplet" aria-hidden="true"></i> <span id="forecast-selected-rain">{{ forecast.0.precipitation }}</span>% {% trans "rain" %}</span>
+                            <span><i class="bi bi-wind" aria-hidden="true"></i> <span id="forecast-selected-wind">{{ forecast.0.wind_speed|floatformat:1 }}</span> m/s</span>
+                        </div>
+                    </div>
+
+                    <button class="forecast-hourly-toggle" id="forecast-hourly-toggle" type="button" aria-expanded="false" aria-controls="forecast-hourly">
+                        <span>{% trans "View hourly details" %}</span><i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="forecast-hourly" id="forecast-hourly" hidden></div>
+                {% else %}
+                    <div class="forecast-empty">
+                        <i class="bi bi-calendar2-week" aria-hidden="true"></i>
+                        <strong>{% trans "Forecast unavailable" %}</strong>
+                        <span>{% trans "Current conditions can still be checked. A forecast will appear when the OpenWeather service returns it." %}</span>
+                    </div>
+                {% endif %}
+            </section>
+        </div>
+    </div>
+</main>
+{{ forecast|json_script:'weather-forecast-data' }}
+{{ weather_ui|json_script:'weather-ui-data' }}
+{% endblock %}

@@ -1,0 +1,455 @@
+{% load static i18n %}
+{% get_current_language as current_language %}
+<!DOCTYPE html>
+<html lang="{{ current_language }}" dir="{% if current_language == 'ur' %}rtl{% else %}ltr{% endif %}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#edf5ff">
+    <title>{% trans "CityPulse USSD" %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/depth.css' %}">
+    <style>
+        :root {
+            color-scheme: light;
+            --blue: #147cff;
+            --blue-deep: #0869e8;
+            --ink: #14233f;
+            --muted: #71829d;
+            --line: #d9e4f2;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #f7faff 0%, #e9f3ff 56%, #f5f9ff 100%);
+            color: var(--ink);
+            font-family: "Poppins", "Noto Sans Devanagari", "Noto Sans Malayalam", "Noto Sans Tamil", "Noto Sans Telugu", "Noto Sans Kannada", "Noto Sans Bengali", "Noto Sans Gujarati", "Noto Sans Gurmukhi", "Noto Sans Oriya", "Noto Nastaliq Urdu", "Segoe UI", sans-serif;
+        }
+
+        .ussd-stage {
+            position: relative;
+            isolation: isolate;
+            display: grid;
+            min-height: 100vh;
+            width: 100%;
+            place-items: center;
+            padding: 24px;
+        }
+
+        .ussd-stage::before,
+        .ussd-stage::after {
+            position: absolute;
+            z-index: -1;
+            content: "";
+            pointer-events: none;
+        }
+
+        .ussd-stage::before {
+            inset: 18% -10% 10%;
+            border-radius: 48% 52% 0 0 / 38% 35% 0 0;
+            background: linear-gradient(150deg, rgba(207, 229, 255, .5), rgba(241, 247, 255, .15));
+            transform: rotate(-6deg);
+        }
+
+        .ussd-stage::after {
+            inset: 0;
+            background: url("{% static 'images/hero.jpg' %}") center / cover no-repeat;
+            opacity: .035;
+            mix-blend-mode: multiply;
+        }
+
+        .phone-device {
+            position: relative;
+            width: min(390px, 100%);
+            height: min(760px, calc(100vh - 48px));
+            min-height: 590px;
+            padding: 9px;
+            border: 1px solid rgba(255, 255, 255, .45);
+            border-radius: 38px;
+            background: #111a2d;
+            box-shadow: 0 30px 70px rgba(34, 68, 115, .24), 0 8px 20px rgba(19, 42, 77, .14);
+        }
+
+        .phone-screen {
+            position: relative;
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+            overflow: hidden;
+            border-radius: 30px;
+            background: #fff;
+        }
+
+        .status-bar {
+            display: flex;
+            height: 38px;
+            flex: 0 0 38px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 18px;
+            color: #1c2b45;
+            font-family: "Segoe UI", sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .status-icons { display: flex; align-items: center; gap: 5px; font-size: 12px; }
+        .status-icons .bi-battery-full { font-size: 16px; }
+
+        .phone-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            min-height: 0;
+            flex: 1;
+            flex-direction: column;
+            padding: 8px 20px 18px;
+        }
+
+        .brand-block { margin-bottom: 24px; text-align: center; }
+
+        .brand-mark {
+            display: grid;
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 10px;
+            place-items: center;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #278bff, #0668f1);
+            box-shadow: 0 7px 16px rgba(20, 124, 255, .22);
+            color: white;
+            font-size: 19px;
+        }
+
+        .brand-name {
+            margin: 0;
+            color: #17416f;
+            font-size: 21px;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .brand-name span { color: var(--blue); }
+        .brand-tagline { margin: 4px 0 0; color: #8190a7; font-size: 10px; }
+
+        .conversation {
+            position: relative;
+            z-index: 1;
+            max-height: 45%;
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+
+        .ussd-message {
+            margin: 0 0 16px;
+            color: #20314f;
+            font-size: 13px;
+            line-height: 1.65;
+            white-space: pre-line;
+        }
+
+        .quick-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin: 0 0 14px;
+        }
+
+        .quick-option {
+            display: flex;
+            min-height: 40px;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 9px;
+            border: 1px solid #dfebf8;
+            border-radius: 10px;
+            background: #f8fbff;
+            color: #304563;
+            cursor: pointer;
+            font: inherit;
+            font-size: 10px;
+            text-align: left;
+            transition: border-color .18s ease, background .18s ease, transform .18s ease;
+        }
+
+        .quick-option:hover,
+        .quick-option:focus-visible {
+            transform: translateY(-1px);
+            border-color: #8ebdff;
+            background: #eef6ff;
+            outline: none;
+        }
+
+        .quick-option span {
+            display: grid;
+            width: 21px;
+            height: 21px;
+            flex: 0 0 21px;
+            place-items: center;
+            border-radius: 7px;
+            background: #e5f1ff;
+            color: var(--blue-deep);
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .response-form { position: relative; z-index: 2; margin-top: auto; }
+        .response-label { display: block; margin: 0 0 7px 2px; color: #72829a; font-size: 10px; font-weight: 600; }
+
+        .phone-entry {
+            display: flex;
+            height: 46px;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 9px;
+            padding: 0 11px;
+            border: 1px solid #dce6f2;
+            border-radius: 13px;
+            background: rgba(255, 255, 255, .94);
+            transition: border-color .18s ease, box-shadow .18s ease;
+        }
+
+        .phone-entry:focus-within {
+            border-color: #83b6ff;
+            box-shadow: 0 0 0 3px rgba(20, 124, 255, .1);
+        }
+
+        .phone-entry-icon { color: var(--blue); font-size: 15px; }
+
+        .country-code {
+            width: 53px;
+            padding: 0 2px;
+            border: 0;
+            background: transparent;
+            color: #3a4b66;
+            font: inherit;
+            font-size: 10px;
+            outline: none;
+        }
+
+        .entry-divider { width: 1px; height: 20px; background: #e3eaf4; }
+
+        .response-input {
+            width: 100%;
+            min-width: 0;
+            height: 100%;
+            border: 0;
+            background: transparent;
+            color: var(--ink);
+            font: inherit;
+            font-size: 12px;
+            outline: none;
+        }
+
+        .response-input::placeholder { color: #96a3b5; opacity: 1; }
+
+        .send-button {
+            display: flex;
+            width: 100%;
+            height: 46px;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border: 0;
+            border-radius: 999px;
+            background: linear-gradient(100deg, #1685ff, #0872fa);
+            box-shadow: 0 7px 16px rgba(20, 124, 255, .19);
+            color: #fff;
+            cursor: pointer;
+            font: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+        }
+
+        .send-button:hover { transform: translateY(-1px); box-shadow: 0 10px 20px rgba(20, 124, 255, .25); }
+        .send-button:focus-visible { outline: 3px solid rgba(20, 124, 255, .3); outline-offset: 3px; }
+        .send-button .bi { position: absolute; right: 18px; font-size: 14px; }
+
+        .connection-note {
+            margin: 10px 0 0;
+            color: #a0acbc;
+            font-family: "Segoe UI", sans-serif;
+            font-size: 9px;
+            text-align: center;
+        }
+
+        .city-art {
+            position: absolute;
+            z-index: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 116px;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .city-art::before {
+            position: absolute;
+            z-index: 1;
+            inset: 0;
+            background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, .72) 45%, rgba(227, 241, 255, .55) 100%);
+            content: "";
+        }
+
+        .city-art img { width: 100%; height: 100%; object-fit: cover; object-position: center 65%; opacity: .36; }
+
+        @media (max-width: 480px) {
+            .ussd-stage { min-height: 100svh; padding: 12px; }
+            .phone-device { width: min(390px, 100%); height: min(760px, calc(100svh - 24px)); min-height: 570px; }
+            .phone-content { padding-right: 18px; padding-left: 18px; }
+        }
+
+        @media (max-height: 650px) {
+            .ussd-stage { min-height: 100svh; padding-top: 10px; padding-bottom: 10px; }
+            .phone-device { height: calc(100svh - 20px); min-height: 0; }
+            .brand-block { margin-bottom: 12px; }
+            .conversation { max-height: 38%; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+        }
+
+        html[dir="rtl"] .phone-device,
+        html[dir="rtl"] .phone-entry { direction: rtl; }
+    </style>
+</head>
+<body class="ussd-scene-page">
+<main class="ussd-stage">
+    <section class="phone-device" aria-label="{% trans 'CityPulse USSD simulator' %}">
+        <div class="phone-screen">
+            <div class="status-bar" aria-label="{% trans 'Phone status' %}">
+                <time id="device-time">9:41</time>
+                <span class="status-icons" aria-hidden="true">
+                    <i class="bi bi-reception-4"></i>
+                    <i class="bi bi-wifi"></i>
+                    <i class="bi bi-battery-full"></i>
+                </span>
+            </div>
+
+            <div class="phone-content">
+                <header class="brand-block">
+                    <div class="brand-mark" aria-hidden="true"><i class="bi bi-send-fill"></i></div>
+                    <h1 class="brand-name">CITY<span>PULSE</span></h1>
+                    <p class="brand-tagline">{% trans "Stay connected with your city" %}</p>
+                </header>
+
+                <form action="{% url 'set_language' %}" method="post" class="ussd-language-switcher">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                    <label class="visually-hidden" for="ussd-language">{% trans "Select language" %}</label>
+                    <select id="ussd-language" name="language" aria-label="{% trans 'Select language' %}" onchange="window.citypulseSetLanguage(this)">
+                        {% for language_code, native_name in native_languages %}
+                            <option value="{{ language_code }}"{% if language_code == current_language %} selected{% endif %}>
+                                {{ native_name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </form>
+
+                <section class="conversation" aria-live="polite" aria-atomic="true" aria-label="{% trans 'USSD conversation' %}">
+                    <p class="ussd-message">{{ message }}</p>
+
+                    {% if request.session.ussd_state == "main" %}
+                        <div class="quick-options" aria-label="{% trans 'USSD menu choices' %}">
+                            <button class="quick-option" type="button" data-response="1"><span>1</span>{% trans "Report complaint" %}</button>
+                            <button class="quick-option" type="button" data-response="2"><span>2</span>{% trans "Track complaint" %}</button>
+                            <button class="quick-option" type="button" data-response="3"><span>3</span>{% trans "Emergency" %}</button>
+                            <button class="quick-option" type="button" data-response="4"><span>4</span>{% trans "Weather" %}</button>
+                            <button class="quick-option" type="button" data-response="5"><span>5</span>{% trans "My complaints" %}</button>
+                        </div>
+                    {% elif request.session.ussd_state == "complaint_category" %}
+                        <div class="quick-options" aria-label="{% trans 'Complaint categories' %}">
+                            <button class="quick-option" type="button" data-response="1"><span>1</span>{% trans "Road" %}</button>
+                            <button class="quick-option" type="button" data-response="2"><span>2</span>{% trans "Water" %}</button>
+                            <button class="quick-option" type="button" data-response="3"><span>3</span>{% trans "Garbage" %}</button>
+                            <button class="quick-option" type="button" data-response="4"><span>4</span>{% trans "Street light" %}</button>
+                            <button class="quick-option" type="button" data-response="5"><span>5</span>{% trans "Drainage" %}</button>
+                            <button class="quick-option" type="button" data-response="6"><span>6</span>{% trans "Other" %}</button>
+                        </div>
+                    {% endif %}
+                </section>
+
+                <form class="response-form" id="ussd-form" method="post" data-state="{{ request.session.ussd_state|default:'phone' }}" data-invalid-phone="{% trans 'Enter a valid mobile number.' %}">
+                    {% csrf_token %}
+                    {% if request.session.ussd_state == "phone" %}
+                        <label class="response-label" for="ussd-response">{% trans "Enter your mobile number to continue" %}</label>
+                        <div class="phone-entry">
+                            <i class="bi bi-phone phone-entry-icon" aria-hidden="true"></i>
+                            <select class="country-code" id="country-code" aria-label="{% trans 'Country calling code' %}">
+                                <option value="+91" selected>+91</option>
+                                <option value="+1">+1</option>
+                                <option value="+44">+44</option>
+                            </select>
+                            <span class="entry-divider" aria-hidden="true"></span>
+                            <input class="response-input" id="ussd-response" name="user_input" type="tel" inputmode="numeric" autocomplete="tel-national" pattern="[0-9]{7,12}" minlength="7" maxlength="12" placeholder="{% trans 'Enter your mobile number' %}" required autofocus>
+                        </div>
+                    {% else %}
+                        <label class="response-label" for="ussd-response">{% trans "Your response" %}</label>
+                        <div class="phone-entry">
+                            <input class="response-input" id="ussd-response" name="user_input" type="text" autocomplete="off" placeholder="{% trans 'Enter your response' %}" required autofocus>
+                        </div>
+                    {% endif %}
+                    <button class="send-button" type="submit">{% trans "Send" %} <i class="bi bi-arrow-right" aria-hidden="true"></i></button>
+                    <p class="connection-note">{% trans "CityPulse civic services · Secure connection" %}</p>
+                </form>
+            </div>
+
+            <div class="city-art" aria-hidden="true">
+                <img src="{% static 'images/hero.jpg' %}" alt="">
+            </div>
+        </div>
+    </section>
+</main>
+<script defer src="{% static 'js/i18n.js' %}?v=1"></script>
+<script defer src="{% static 'js/citypulse-3d-loader.js' %}?v=1"></script>
+<script>
+    const form = document.getElementById('ussd-form');
+    const responseInput = document.getElementById('ussd-response');
+    const countryCode = document.getElementById('country-code');
+    const deviceTime = document.getElementById('device-time');
+
+    if (deviceTime) {
+        const updateDeviceTime = () => {
+            deviceTime.textContent = new Intl.DateTimeFormat(document.documentElement.lang, {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            }).format(new Date());
+        };
+        updateDeviceTime();
+        window.setInterval(updateDeviceTime, 60000);
+    }
+
+    form?.addEventListener('submit', (event) => {
+        if (form.dataset.state === 'phone') {
+            const digits = responseInput.value.replace(/\D/g, '');
+            if (digits.length < 7 || digits.length > 12) {
+                event.preventDefault();
+                responseInput.setCustomValidity(form.dataset.invalidPhone);
+                responseInput.reportValidity();
+                return;
+            }
+            responseInput.setCustomValidity('');
+            responseInput.value = `${countryCode.value} ${digits}`;
+        }
+    });
+
+    document.querySelectorAll('[data-response]').forEach((choice) => {
+        choice.addEventListener('click', () => {
+            responseInput.value = choice.dataset.response;
+            form.requestSubmit();
+        });
+    });
+</script>
+</body>
+</html>

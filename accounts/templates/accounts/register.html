@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="container-fluid auth-page px-3">
+    <div class="row justify-content-center align-items-center min-vh-100 w-100">
+        <div class="col-12 col-xl-11">
+            <div class="auth-card row g-0 overflow-hidden">
+                <div class="col-lg-5 auth-side-panel p-4 p-lg-5 d-flex flex-column justify-content-center">
+                    <div class="auth-badge">{% trans "Join CityPulse" %}</div>
+                    <h2 class="mt-3 mb-3">{% trans "Create your city account" %}</h2>
+                    <p class="mb-0">{% trans "Register to report issues, track civic updates, and help your city stay informed." %}</p>
+                </div>
+                <div class="col-lg-7 p-4 p-lg-5 auth-main-panel">
+                    <h3 class="mb-4">{% trans "Sign Up" %}</h3>
+                    <form method="post" class="auth-form">
+                        {% csrf_token %}
+                        {% if form.non_field_errors %}
+                            <div class="login-error" role="alert">{{ form.non_field_errors }}</div>
+                        {% endif %}
+                        {% include 'partials/form_fields.html' with form=form %}
+                        <button class="btn btn-auth w-100 mt-3" type="submit">{% trans "Create Account" %}</button>
+                    </form>
+                    <p class="mt-4 text-center mb-0">{% trans "Already have an account?" %} <a href="{% url 'login' %}">{% trans "Login" %}</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

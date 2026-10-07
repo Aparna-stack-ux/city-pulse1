@@ -1,0 +1,465 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<main class="map-workspace">
+    <section class="map-shell map-main-panel" aria-labelledby="map-page-title">
+        <header class="map-workspace-heading">
+            <div>
+                <p class="map-kicker">{% trans "CITYPULSE / LIVE MAP" %}</p>
+                <h1 id="map-page-title">{% trans "CityPulse live map" %}</h1>
+                <p>{% trans "Search a place to see nearby reported problems and garbage hotspots." %}</p>
+            </div>
+            <span class="map-live-indicator"><i></i>{% trans "Live incident map" %}</span>
+            <div class="map-city-preview" data-citypulse-3d="map" data-points-id="map-data" aria-label="{% trans 'Interactive map of reported city problems' %}" tabindex="0">
+                <span><i class="bi bi-buildings-fill" aria-hidden="true"></i> {% trans "CityPulse live map" %}</span>
+            </div>
+        </header>
+
+        <div class="map-controls">
+            <form id="map-search-form" class="map-search" role="search">
+                <label class="visually-hidden" for="map-search-input">{% trans "Search for a place" %}</label>
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input id="map-search-input" class="form-control" type="search" placeholder="{% trans 'Search a place, street, or ward' %}" autocomplete="off">
+                <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i> {% trans "Search" %}</button>
+            </form>
+
+            <div class="map-filters" role="group" aria-label="{% trans 'Map filters' %}">
+                <button class="btn btn-sm btn-primary map-filter is-active" type="button" data-filter="all">{% trans "All locations" %}</button>
+                <button class="btn btn-sm btn-outline-light map-filter" type="button" data-filter="hotspot">{% trans "Garbage hotspots" %}</button>
+                <button class="btn btn-sm btn-outline-light map-filter" type="button" data-filter="complaint">{% trans "Citizen reports" %}</button>
+            </div>
+        </div>
+
+        <p id="map-search-status" class="map-search-status" aria-live="polite"></p>
+
+        <div class="map-canvas-frame">
+            <div id="city-map" class="leaflet-map" aria-label="{% trans 'Interactive map of reported city problems' %}"></div>
+            <div id="map-fallback" class="map-fallback d-none" role="status">
+                <h3>{% trans "Location list" %}</h3>
+                <p>{% trans "The interactive map tiles are unavailable in this browser, so you can still browse every report and hotspot below." %}</p>
+                <div id="map-fallback-list" class="row g-2"></div>
+            </div>
+        </div>
+    </section>
+
+    <aside class="map-right-rail" aria-label="{% trans 'Map overview' %}">
+        <section class="map-rail-panel map-legend">
+            <div class="map-rail-panel-heading">
+                <span class="map-rail-icon"><i class="bi bi-trash3-fill" aria-hidden="true"></i></span>
+                <h2>{% trans "Map legend" %}</h2>
+            </div>
+            <ul class="map-legend-list">
+                <li><span class="legend-swatch legend-swatch--reported"></span>{% trans "Garbage Reported" %}</li>
+                <li><span class="legend-swatch legend-swatch--resolved"></span>{% trans "Garbage Resolved" %}</li>
+                <li><span class="legend-swatch legend-swatch--other"></span>{% trans "Other Issues" %}</li>
+            </ul>
+            <div class="map-total-row">
+                <span>{% trans "Total complaints" %}</span><strong>{{ total_complaints }}</strong>
+            </div>
+            <div class="map-total-row">
+                <span>{% trans "Garbage hotspots" %}</span><strong>{{ hotspot_count }}</strong>
+            </div>
+        </section>
+
+        <section class="map-stat-card map-active-card">
+            <span class="map-rail-icon map-rail-icon--blue"><i class="bi bi-megaphone-fill" aria-hidden="true"></i></span>
+            <div><p>{% trans "Active reports" %}</p><strong>{{ total_complaints }}</strong></div>
+            <i class="bi bi-arrow-up-right map-rail-arrow" aria-hidden="true"></i>
+        </section>
+
+        <section class="map-stat-card map-recent-card">
+            <div class="map-rail-panel-heading">
+                <span class="map-rail-icon map-rail-icon--alert"><i class="bi bi-exclamation-triangle-fill" aria-hidden="true"></i></span>
+                <h2>{% trans "Recent incidents" %}</h2>
+                <span class="map-recent-count">{{ map_points|length }}</span>
+            </div>
+            <div class="map-incident-list">
+                {% for point in map_points %}
+                    <article class="map-incident-row">
+                        <span class="map-incident-pin"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i></span>
+                        <div class="map-incident-copy">
+                            <strong>{{ point.title }}</strong>
+                            <small>{{ point.category }} · {{ point.status }}</small>
+                        </div>
+                        <i class="bi bi-chevron-right map-incident-chevron" aria-hidden="true"></i>
+                    </article>
+                {% empty %}
+                    <p class="map-incidents-empty">{% trans "No active incidents available yet." %}</p>
+                {% endfor %}
+            </div>
+        </section>
+
+        <a class="btn btn-primary map-report-button" href="{% url 'complaint_create' %}">
+            <i class="bi bi-plus-circle" aria-hidden="true"></i> {% trans "Report a new incident" %}
+        </a>
+    </aside>
+</main>
+
+
+{{ map_points_json|json_script:'map-data' }}
+{{ map_ui|json_script:'map-ui-data' }}
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const mapElement = document.getElementById('city-map');
+    const fallback = document.getElementById('map-fallback');
+    const fallbackList = document.getElementById('map-fallback-list');
+
+    const mapDataElement = document.getElementById('map-data');
+    const mapPoints = JSON.parse(mapDataElement?.textContent || '[]');
+    const mapUi = JSON.parse(document.getElementById('map-ui-data')?.textContent || '{}');
+
+
+    const escapeHtml = (value) =>
+        String(value ?? '').replace(/[&<>'"]/g, character => ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            "'": '&#39;',
+            '"': '&quot;'
+        }[character]));
+
+
+    const showFallback = (message) => {
+
+        if (!fallback || !fallbackList) return;
+
+        fallback.classList.remove('d-none');
+
+        if (message) {
+            fallback.querySelector('p').textContent = message;
+        }
+
+        fallbackList.innerHTML = mapPoints.map(point => `
+            <div class="col-md-6">
+
+                <article class="map-fallback-item">
+
+                    <strong>
+                        ${point.is_hotspot ? '🗑️' : '📣'}
+                        ${escapeHtml(point.title)}
+                    </strong>
+
+                    <span>
+                        ${escapeHtml(point.location)}
+                    </span>
+
+                    <small>
+                        ${escapeHtml(point.status)}
+                    </small>
+
+                </article>
+
+            </div>
+        `).join('');
+    };
+
+
+    if (!mapElement || !window.L) {
+
+        showFallback(
+            mapUi.mapUnavailable
+        );
+
+        return;
+    }
+
+
+    const indiaCenter = [22.5937, 78.9629];
+
+    const indiaBounds = L.latLngBounds(
+        [6.4626999, 68.1097],
+        [35.5087008, 97.395561]
+    );
+
+
+    const map = L.map('city-map', {
+        zoomControl: true,
+        maxBounds: indiaBounds,
+        maxBoundsViscosity: 1.0
+    }).setView(indiaCenter, 5);
+
+    map.attributionControl.setPrefix(false);
+
+
+    map.setMinZoom(4.5);
+
+
+    const tileLayer = L.tileLayer(
+        'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+        {
+            attribution: '&copy; Esri',
+            maxZoom: 20
+        }
+    ).addTo(map);
+
+
+    tileLayer.on('tileerror', () => {
+
+        showFallback(
+            mapUi.tilesUnavailable
+        );
+
+    });
+
+
+    const markers = [];
+    const bounds = [];
+
+
+    mapPoints.forEach(function (point) {
+
+        const isResolved =
+            point.status.toLowerCase() === 'resolved';
+
+
+        const color = point.is_garbage
+            ? (isResolved ? '#2a9d8f' : '#e63946')
+            : '#3a86ff';
+
+
+        const marker = L.marker(
+            [point.lat, point.lng],
+            {
+                icon: L.divIcon({
+
+                    className: 'complaint-marker',
+
+                    html:
+                        '<span style="' +
+                        'display:block;' +
+                        'width:100%;' +
+                        'height:100%;' +
+                        'background:' + color + ';' +
+                        'border-radius:50%;' +
+                        '"></span>',
+
+                    iconSize: [18, 18],
+
+                    iconAnchor: [9, 9]
+
+                })
+            }
+        ).addTo(map);
+
+
+        marker.bindPopup(
+
+            '<div class="complaint-popup">' +
+
+                '<div class="complaint-popup__title">' +
+                    escapeHtml(point.title) +
+                '</div>' +
+
+                '<div class="complaint-popup__meta">' +
+                    '<strong>' + escapeHtml(mapUi.location) + '</strong> ' +
+                    escapeHtml(point.location) +
+                '</div>' +
+
+                '<div class="complaint-popup__meta">' +
+                    '<strong>' + escapeHtml(mapUi.category) + '</strong> ' +
+                    escapeHtml(point.category) +
+                '</div>' +
+
+                '<div class="complaint-popup__meta">' +
+                    '<strong>' + escapeHtml(mapUi.status) + '</strong> ' +
+                    escapeHtml(point.status) +
+                '</div>' +
+
+                (
+                    point.description
+                        ? '<div class="complaint-popup__meta mt-1">' +
+                            escapeHtml(point.description) +
+                          '</div>'
+                        : ''
+                ) +
+
+            '</div>'
+        );
+
+
+        markers.push({
+            point: point,
+            marker: marker
+        });
+
+
+        bounds.push([
+            point.lat,
+            point.lng
+        ]);
+
+    });
+
+
+    if (bounds.length) {
+
+        map.fitBounds(
+            bounds,
+            {
+                padding: [40, 40],
+                maxZoom: 12
+            }
+        );
+
+    }
+
+    document.addEventListener('citypulse:3d-map-marker', function (event) {
+        const selected = markers[event.detail?.index];
+        if (!selected) return;
+        map.panTo([selected.point.lat, selected.point.lng]);
+        selected.marker.openPopup();
+        searchStatus.textContent = selected.point.title;
+    });
+
+
+    const searchForm =
+        document.getElementById('map-search-form');
+
+    const searchInput =
+        document.getElementById('map-search-input');
+
+    const searchStatus =
+        document.getElementById('map-search-status');
+
+
+    if (searchForm && searchInput && searchStatus) {
+
+        searchForm.addEventListener(
+            'submit',
+            function (event) {
+
+                event.preventDefault();
+
+                const query =
+                    searchInput.value.trim().toLowerCase();
+
+
+                if (!query) return;
+
+
+                const matches = markers.filter(({ point }) =>
+
+                    [
+                        point.title,
+                        point.location,
+                        point.category,
+                        point.status
+                    ]
+                    .join(' ')
+                    .toLowerCase()
+                    .includes(query)
+
+                );
+
+
+                if (matches.length) {
+
+                    map.fitBounds(
+
+                        matches.map(
+                            ({ point }) => [
+                                point.lat,
+                                point.lng
+                            ]
+                        ),
+
+                        {
+                            padding: [50, 50],
+                            maxZoom: 15
+                        }
+
+                    );
+
+
+                    matches[0].marker.openPopup();
+
+
+                    searchStatus.textContent =
+                        matches.length +
+                        ' ' + (matches.length === 1 ? mapUi.reportedProblemSingular : mapUi.reportedProblemPlural) +
+                        ' ' + mapUi.found;
+
+                } else {
+
+                    searchStatus.textContent =
+                        mapUi.noMatches;
+
+                }
+
+            }
+        );
+
+    }
+
+
+    document
+        .querySelectorAll('.map-filter')
+        .forEach(function (button) {
+
+            button.addEventListener(
+                'click',
+                function () {
+
+                    document
+                        .querySelectorAll('.map-filter')
+                        .forEach(item =>
+                            item.classList.remove('is-active')
+                        );
+
+
+                    button.classList.add('is-active');
+
+
+                    const filter =
+                        button.dataset.filter;
+
+
+                    markers.forEach(
+                        ({ point, marker }) => {
+
+                            const visible =
+                                filter === 'all' ||
+                                (
+                                    filter === 'hotspot' &&
+                                    point.is_hotspot
+                                ) ||
+                                (
+                                    filter === 'complaint' &&
+                                    !point.is_hotspot
+                                );
+
+
+                            if (visible) {
+
+                                marker.addTo(map);
+
+                            } else {
+
+                                map.removeLayer(marker);
+
+                            }
+
+                        }
+                    );
+
+
+                    searchStatus.textContent =
+                        filter === 'hotspot'
+                            ? mapUi.showHotspots
+                            : filter === 'complaint'
+                                ? mapUi.showReports
+                                : mapUi.showAll;
+
+                }
+            );
+
+        });
+
+});
+</script>
+
+{% endblock %}

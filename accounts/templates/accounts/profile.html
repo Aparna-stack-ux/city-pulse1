@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card bg-dark text-white p-4">
+                <h2 class="mb-4">👤 {% trans "Profile" %}</h2>
+                <p><strong>{% trans "Username:" %}</strong> {{ request.user.username }}</p>
+                <p><strong>{% trans "Name:" %}</strong> {{ request.user.first_name }} {{ request.user.last_name }}</p>
+                <p><strong>{% trans "Email:" %}</strong> {{ request.user.email }}</p>
+                <a class="btn btn-outline-light" href="{% url 'dashboard' %}">{% trans "Back to Dashboard" %}</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
