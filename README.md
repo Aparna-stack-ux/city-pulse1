@@ -56,3 +56,13 @@ python manage.py runserver
 - Use `.env.example` as a template and never commit `.env` or database credentials.
 - Run `python manage.py migrate` after setting `DATABASE_URL` to create the project tables in Supabase.
 - Static files are expected under `citypulse/static/` and media under `media/`.
+
+## Deploy to Render
+
+1. Push the project to a GitHub repository that your Render account can access.
+2. In Render, select **New + > Blueprint** and connect that repository. Render will use `render.yaml` to build and start the web service.
+3. When prompted for `DATABASE_URL`, provide a PostgreSQL connection URI for a persistent database, such as the Supabase URI described above. Do not use SQLite for a deployed service because Render's local filesystem is ephemeral.
+4. Deploy. The blueprint generates `DJANGO_SECRET_KEY`, disables debug mode, collects static files, and applies database migrations when the service starts. Render's `RENDER_EXTERNAL_HOSTNAME` is used for allowed hosts and CSRF checks.
+5. Add `OPENWEATHER_API_KEY` and `OPENAI_API_KEY` in the Render service's environment settings if those integrations are needed.
+
+The first push to GitHub must succeed before Render can access the project. If GitHub rejects the push, resolve repository access or authenticate Git with an account that has write access, then push the `main` branch.
